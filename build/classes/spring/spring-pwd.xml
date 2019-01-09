@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- 用户注册 -->
+	<bean id="registerDao" class="com.yzxt.yh.module.pwd.dao.RegisterDao"
+		parent="hibernateUtil" />
+	<bean id="registerService" class="com.yzxt.yh.module.pwd.service.RegisterService">
+		<property name="registerDao" ref="registerDao" />
+		<property name="userDao" ref="userDao" />
+		<property name="customerDao" ref="customerDao" />
+		<property name="findPwdDao" ref="findPwdDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="orgService" ref="orgService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="registerAction" class="com.yzxt.yh.module.pwd.action.RegisterAction"
+		scope="prototype">
+		<property name="registerService" ref="registerService" />
+		<property name="orgService" ref="orgService" />
+	</bean>
+	<!-- 密码重置 -->
+	<bean id="findPwdDao" class="com.yzxt.yh.module.pwd.dao.FindPwdDao"
+		parent="hibernateUtil" />
+</beans>

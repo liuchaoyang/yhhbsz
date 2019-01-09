@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.FileDesc" table="sys_file_desc"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name_" length="100" not-null="true" />
+		</property>
+		<property name="path" type="java.lang.String">
+			<column name="path" length="100" not-null="true" />
+		</property>
+		<property name="extName" type="java.lang.String">
+			<column name="ext_name" length="10">
+				<comment>扩展名</comment>
+			</column>
+		</property>
+		<property name="fileSize" type="java.lang.Long">
+			<column name="file_size" precision="8" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chr.bean.Visit" table="chr_visit"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="doctorId" type="java.lang.String">
+			<column name="doctor_id" length="36">
+				<comment>随访医生</comment>
+			</column>
+		</property>
+		<property name="visitNo" type="java.lang.String">
+			<column name="visit_no" length="19" not-null="true">
+				<comment>随访编号</comment>
+			</column>
+		</property>
+		<property name="type" type="java.lang.Integer">
+			<column name="type_" not-null="true">
+				<comment>随访类型，1：血压，2：血糖，3：心脑血管</comment>
+			</column>
+		</property>
+		<property name="grade" type="java.lang.Integer">
+			<column name="grade">
+				<comment>危险分级：1-初2-中3-高4-极高</comment>
+			</column>
+		</property>
+		<property name="planFlupTime" type="java.util.Date">
+			<column name="plan_flup_time" length="10" not-null="true">
+				<comment>计划随访时间</comment>
+			</column>
+		</property>
+		<property name="ishandled" type="java.lang.Integer">
+			<column name="ishandled" not-null="true">
+				<comment>是否已随访，1：未处理，2：已随访</comment>
+			</column>
+		</property>
+		<property name="actualFlupTime" type="java.sql.Timestamp">
+			<column name="actual_flup_time" length="19">
+				<comment>执行随访时间</comment>
+			</column>
+		</property>
+		<property name="flupGrade" type="java.lang.Integer">
+			<column name="flup_grade">
+				<comment>随访分类1-控制满意2-控制不满意3-不良反应4-并发症</comment>
+			</column>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" not-null="true">
+				<comment>1-存在0-删除</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true" />
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

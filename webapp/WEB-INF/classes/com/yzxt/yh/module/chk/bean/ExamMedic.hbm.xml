@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.ExamMedic" table="chk_exam_medic"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="examId" type="java.lang.String">
+			<column name="exam_id" length="18" not-null="true">
+			</column>
+		</property>
+		<property name="medName" type="java.lang.String">
+			<column name="med_name" length="50">
+			</column>
+		</property>
+		<property name="useType" type="java.lang.String">
+			<column name="use_type" length="20">
+			</column>
+		</property>
+		<property name="useNum" type="java.lang.String">
+			<column name="use_num" length="50">
+			</column>
+		</property>
+		<property name="useTime" type="java.lang.String">
+			<column name="use_time" length="20">
+			</column>
+		</property>
+		<property name="adhes" type="java.lang.Integer">
+			<column name="adhes">
+			</column>
+		</property>
+		<property name="seq" type="java.lang.Integer">
+			<column name="seq" not-null="true">
+				<comment>顺序号，从0开始</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

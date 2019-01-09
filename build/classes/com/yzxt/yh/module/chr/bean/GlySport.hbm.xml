@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chr.bean.GlySport" table="chr_gly_sport"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="hbpSptFy" type="java.lang.Integer">
+			<column name="hbp_spt_fy">
+				<comment>运动频率(一周多少次)</comment>
+			</column>
+		</property>
+		<property name="hbpSptTime" type="java.lang.Integer">
+			<column name="hbp_spt_time">
+				<comment>运动时间（分钟）</comment>
+			</column>
+		</property>
+		<property name="BId" type="java.lang.String">
+			<column name="b_id" length="36">
+				<comment>血压表中记录唯一id</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

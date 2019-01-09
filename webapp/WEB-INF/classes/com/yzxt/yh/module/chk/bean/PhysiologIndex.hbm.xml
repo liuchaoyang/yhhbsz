@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.PhysiologIndex" table="chk_physiolog_index"
+		catalog="">
+		<id name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="height" type="java.lang.Double">
+			<column name="height" precision="6">
+				<comment>身高（m）</comment>
+			</column>
+		</property>
+		<property name="weight" type="java.lang.Double">
+			<column name="weight" precision="6">
+				<comment>体重（kg）</comment>
+			</column>
+		</property>
+		<property name="sbp" type="java.lang.Integer">
+			<column name="sbp">
+				<comment>收缩压（mmHg）</comment>
+			</column>
+		</property>
+		<property name="dbp" type="java.lang.Integer">
+			<column name="dbp">
+				<comment>舒张压（mmHg）</comment>
+			</column>
+		</property>
+		<property name="fpg" type="java.lang.Double">
+			<column name="fpg" precision="5" scale="1">
+				<comment>空腹血糖（mmol/L）</comment>
+			</column>
+		</property>
+		<property name="h2pbg" type="java.lang.Double">
+			<column name="h2pbg" precision="5" scale="1">
+				<comment>餐后2小时血糖（mmol/L）</comment>
+			</column>
+		</property>
+		<property name="l2sugar" type="java.lang.Double">
+			<column name="l2sugar" precision="5" scale="1">
+				<comment>服糖后2小时血糖（mmol/L）</comment>
+			</column>
+		</property>
+		<property name="pulse" type="java.lang.Integer">
+			<column name="pulse">
+				<comment>脉搏（次/每分钟）</comment>
+			</column>
+		</property>
+		<property name="bo" type="java.lang.Integer">
+			<column name="bo">
+				<comment>血氧（%）</comment>
+			</column>
+		</property>
+		<property name="bfr" type="java.lang.Double">
+			<column name="bfr" precision="6" scale="2">
+				<comment>体脂率（%）</comment>
+			</column>
+		</property>
+		<property name="temperature" type="java.lang.Double">
+			<column name="temperature" precision="3" scale="1">
+				<comment>体温（C）</comment>
+			</column>
+		</property>
+		<property name="totalCholesterol" type="java.lang.Double">
+			<column name="total_cholesterol" precision="5" scale="1">
+				<comment>总胆固醇（mmol/L）</comment>
+			</column>
+		</property>
+		<property name="uricAcid" type="java.lang.Double">
+			<column name="uric_acid" precision="6">
+				<comment>尿酸（umol/L）</comment>
+			</column>
+		</property>
+		<property name="lastCheckItem" type="java.lang.String">
+			<column name="last_check_item" length="10">
+				<comment>上次检测项目</comment>
+			</column>
+		</property>
+		<property name="lastCheckTime" type="java.sql.Timestamp">
+			<column name="last_check_time" length="19">
+				<comment>上次检测时间</comment>
+			</column>
+		</property>
+		<property name="lastRemindTime" type="java.sql.Timestamp">
+			<column name="last_remind_time" length="19">
+				<comment>上次提醒时间</comment>
+			</column>
+		</property>
+		<property name="remindIntervalDay" type="java.lang.Integer">
+			<column name="remind_interval_day">
+				<comment>提醒间隔天数，-1表示不用提醒</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

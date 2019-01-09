@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 客户生活信息 -->
+	<bean id="custPositionDao" class="com.yzxt.yh.module.cli.dao.CustPositionDao"
+		parent="hibernateUtil" />
+	<bean id="remindDao" class="com.yzxt.yh.module.cli.dao.RemindDao"
+		parent="hibernateUtil" />
+	<bean id="sleepDao" class="com.yzxt.yh.module.cli.dao.SleepDao"
+		parent="hibernateUtil" />
+	<bean id="stepDao" class="com.yzxt.yh.module.cli.dao.StepDao"
+		parent="hibernateUtil" />
+	<bean id="sleepQualityDao" class="com.yzxt.yh.module.cli.dao.SleepQualityDao"
+		parent="hibernateUtil" />
+	<bean id="custPositionService" class="com.yzxt.yh.module.cli.service.CustPositionService">
+		<property name="custPositionDao" ref="custPositionDao" />
+	</bean>
+	<bean id="remindService" class="com.yzxt.yh.module.cli.service.RemindService">
+		<property name="remindDao" ref="remindDao" />
+	</bean>
+	<bean id="sleepService" class="com.yzxt.yh.module.cli.service.SleepService">
+		<property name="sleepDao" ref="sleepDao" />
+	</bean>
+	<bean id="stepService" class="com.yzxt.yh.module.cli.service.StepService">
+		<property name="stepDao" ref="stepDao" />
+	</bean>
+	<bean id="sleepQualityService" class="com.yzxt.yh.module.cli.service.SleepQualityService">
+		<property name="sleepQualityDao" ref="sleepQualityDao" />
+	</bean>
+	<bean id="custLifeAction" class="com.yzxt.yh.module.cli.action.CustLifeAction"
+		scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="stepService" ref="stepService" />
+		<property name="sleepService" ref="sleepService" />
+		<property name="remindService" ref="remindService" />
+		<property name="sleepQualityService" ref="sleepQualityService" />
+		<property name="custPositionService" ref="custPositionService" />
+	</bean>
+
+	<bean id="wbConfigDao" class="com.yzxt.yh.module.cli.dao.WbConfigDao"
+		parent="hibernateUtil" />
+	<bean id="wbUpdateDao" class="com.yzxt.yh.module.cli.dao.WbUpdateDao"
+		parent="hibernateUtil" />
+	<bean id="wbConfigService" class="com.yzxt.yh.module.cli.service.WbConfigService">
+		<property name="wbConfigDao" ref="wbConfigDao" />
+		<property name="wbUpdateDao" ref="wbUpdateDao" />
+		<property name="fileDescDao" ref="fileDescDao" />
+	</bean>
+	<!-- 电子围栏告警 -->
+	<bean id="fenceWarnDao" class="com.yzxt.yh.module.cli.dao.FenceWarnDao"
+		parent="hibernateUtil" />
+	<bean id="fenceWarnService" class="com.yzxt.yh.module.cli.service.FenceWarnService">
+		<property name="fenceWarnDao" ref="fenceWarnDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+	</bean>
+	<bean id="fenceWarnAction" class="com.yzxt.yh.module.cli.action.FenceWarnAction"
+		scope="prototype">
+		<property name="fenceWarnService" ref="fenceWarnService" />
+	</bean>
+</beans>

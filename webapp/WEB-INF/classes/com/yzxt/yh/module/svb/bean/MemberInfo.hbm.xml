@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.svb.bean.MemberInfo" table="svb_member_info"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="doctorId" type="java.lang.String">
+			<column name="doctor_id" length="36" not-null="true">
+				<comment>医生（健康管理师）ID</comment>
+			</column>
+		</property>
+		<property name="orgId" type="java.lang.String">
+			<column name="org_id" length="36" not-null="true">
+				<comment>组织ID</comment>
+			</column>
+		</property>
+		<property name="startDay" type="java.util.Date">
+			<column name="start_day" length="10" not-null="true">
+				<comment>会员开始日期</comment>
+			</column>
+		</property>
+		<property name="endDay" type="java.util.Date">
+			<column name="end_day" length="10" not-null="true">
+				<comment>会员截止日期</comment>
+			</column>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" not-null="true">
+				<comment>会员状态，1：有效，2：无效</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.yzxt.yh.module.cli.bean.WbUpdate" table="cli_wb_update" catalog="">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <property name="wbId" type="string">
+            <column name="wb_id" length="36" not-null="true">
+                <comment>配置表IMEI</comment>
+            </column>
+        </property>
+        <property name="configItem" type="string">
+            <column name="config_item" length="36" not-null="true">
+                <comment>配置修改项</comment>
+            </column>
+        </property>
+        <property name="status" type="integer">
+            <column name="status" not-null="true">
+                <comment>配置是否有效：1 未发送，2 已发送</comment>
+            </column>
+        </property>
+        <property name="configData" type="string">
+            <column name="config_data" length="300" not-null="true">
+                <comment>配置修改数据</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="updateBy" type="string">
+            <column name="update_by" length="36" not-null="true">
+                <comment>修改人</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

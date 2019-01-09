@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.opensymphony.com/quartz/JobSchedulingData
+   http://www.opensymphony.com/quartz/xml/job_scheduling_data_1_5.xsd"
+	version="1.5">
+	<!-- 健康分析报告 -->
+	<job>
+		<job-detail>
+			<name>analyseReportJob</name>
+			<group>commonGroup</group>
+			<description></description>
+			<job-class>com.yzxt.yh.sch.job.AnalysisReportJob</job-class>
+			<volatility>false</volatility>
+			<durability>false</durability>
+			<recover>false</recover>
+		</job-detail>
+		<trigger>
+			<cron>
+				<name>monthlyAnalyseReportTrigger</name>
+				<group>commonGroup</group>
+				<description></description>
+				<job-name>analyseReportJob</job-name>
+				<job-group>commonGroup</job-group>
+				<!-- 每周一 -->
+				<cron-expression>0 30 0 ? * MON</cron-expression>
+			</cron>
+		</trigger>
+	</job>
+	<!-- 会员过期 -->
+	<job>
+		<job-detail>
+			<name>memberInfoJob</name>
+			<group>commonGroup</group>
+			<description></description>
+			<job-class>com.yzxt.yh.sch.job.MemberInfoJob</job-class>
+			<volatility>false</volatility>
+			<durability>false</durability>
+			<recover>false</recover>
+		</job-detail>
+		<trigger>
+			<cron>
+				<name>dailyMemberInfoTrigger</name>
+				<group>commonGroup</group>
+				<description></description>
+				<job-name>memberInfoJob</job-name>
+				<job-group>commonGroup</job-group>
+				<cron-expression>0 0 1 * * ?</cron-expression>
+			</cron>
+			<simple>
+				<name>startupMemberInfoTrigger</name>
+				<job-name>memberInfo</job-name>
+				<repeat-count>0</repeat-count>
+			</simple>
+		</trigger>
+	</job>
+	<!-- 检测提醒 -->
+	<job>
+		<job-detail>
+			<name>checkRemindJob</name>
+			<group>commonGroup</group>
+			<description></description>
+			<job-class>com.yzxt.yh.sch.job.CheckRemindJob</job-class>
+			<volatility>false</volatility>
+			<durability>false</durability>
+			<recover>false</recover>
+		</job-detail>
+		<trigger>
+			<cron>
+				<name>checkRemindTrigger</name>
+				<group>commonGroup</group>
+				<description></description>
+				<job-name>checkRemindJob</job-name>
+				<job-group>commonGroup</job-group>
+				<cron-expression>0 0 10 * * ?</cron-expression>
+			</cron>
+		</trigger>
+	</job>
+	<!-- 半月处理 -->
+	<job>
+		<job-detail>
+			<name>monthJob</name>
+			<group>commonGroup</group>
+			<description></description>
+			<job-class>com.yzxt.yh.sch.job.MonthJob</job-class>
+			<volatility>false</volatility>
+			<durability>false</durability>
+			<recover>false</recover>
+		</job-detail>
+		<trigger>
+			<cron>
+				<name>monthTrigger</name>
+				<group>commonGroup</group>
+				<description></description>
+				<job-name>monthJob</job-name>
+				<job-group>commonGroup</job-group>
+				<cron-expression>0 0 0 3 * ?</cron-expression>
+			</cron>
+		</trigger>
+	</job>
+</quartz>

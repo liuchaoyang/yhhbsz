@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="pwd_action" extends="struts-default" namespace="/pwd">
+		<action name="register_*" class="registerAction" method="{1}">
+			<result name="reset">/pub/reSetPwd.jsp</result>
+			<result name="register">/pub/register.jsp</result>
+			<result name="resetPwd">/pub/pwdReset.jsp</result>
+			<result name="error">/common/error.jsp</result>
+		</action>
+	</package>
+</struts>

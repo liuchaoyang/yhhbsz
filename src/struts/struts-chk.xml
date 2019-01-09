@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="chk_action" extends="struts-default" namespace="/chk">
+		<action name="checkData_*" class="checkDataAction" method="{1}">
+			<result name="analysisUricAcidView">/chk/analysisUricAcidView.jsp</result>
+			<result name="custCheckDetail">/chk/custCheckDetail.jsp</result>
+		</action>
+		<action name="checkWarn_*" class="checkWarnAction" method="{1}">
+			<result name="detail">/chk/custWarningList.jsp</result>
+		</action>
+		<action name="checkRemind_*" class="checkRemindAction" method="{1}">
+		</action>
+		<action name="userDevice_*" class="userDeviceAction" method="{1}">
+			<result name="edit">/chk/myDeviceEdit.jsp</result>
+			<result name="add">/chk/userDevices.jsp</result>
+		</action>
+		<action name="phyIdx_*" class="physiologIndexAction" method="{1}">
+			<result name="phyIdxDetail">/chk/phyIdxDetail.jsp</result>
+		</action>
+		<action name="exam_*" class="examAction" method="{1}">
+			<result name="custExams">/exam/custExams.jsp</result>
+			<result name="examEdit">/exam/examEdit.jsp</result>
+			<result name="examView">/exam/examView.jsp</result>
+		</action>
+		<action name="deviceInfo_*" class="deviceInfoAction" method="{1}">
+			<result name="detail">/chk/deviceConfig.jsp</result>
+		</action>
+		<action name="deviceConfig_*" class="deviceConfigAction"
+			method="{1}">
+			<!-- <result name="detail">/chk/deviceConfig.jsp</result> -->
+		</action>
+	</package>
+</struts>

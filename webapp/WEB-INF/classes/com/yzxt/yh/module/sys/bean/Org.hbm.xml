@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.Org" table="sys_org"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="java.lang.String">
+			<column name="parent_id" length="36">
+			</column>
+		</property>
+		<property name="fullId" type="java.lang.String">
+			<column name="full_id" length="36" not-null="true">
+			</column>
+		</property>
+		<property name="level" type="java.lang.Integer">
+			<column name="level">
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name_" length="50" not-null="true">
+			</column>
+		</property>
+		<property name="mnemonicCode" type="java.lang.String">
+			<column name="mnemonic_code" length="15">
+			</column>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="100">
+			</column>
+		</property>
+		<property name="logoId" type="java.lang.String">
+			<column name="logo_id" length="36" not-null="false">
+			</column>
+		</property>
+		<property name="showText" type="java.lang.String">
+			<column name="show_text" length="50" not-null="true">
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36">
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19">
+			</column>
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36">
+			</column>
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19">
+			</column>
+		</property>
+		<property name="phone" type="java.lang.String">
+			<column name="phone" length="20">
+			</column>
+		</property>
+		<property name="contactPerson" type="java.lang.String">
+			<column name="contact_person" length="20">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

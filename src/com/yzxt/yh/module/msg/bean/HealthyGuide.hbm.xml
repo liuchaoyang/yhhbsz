@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.msg.bean.HealthyGuide" table="msg_healthy_guide"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="preId" type="java.lang.String">
+			<column name="preId" length="36">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="directReason" type="java.lang.String">
+			<column name="direct_reason" length="100">
+				<comment>指导原因</comment>
+			</column>
+		</property>
+		<property name="sportDirect" type="java.lang.String">
+			<column name="sport_direct" length="100">
+				<comment>运动指导</comment>
+			</column>
+		</property>
+		<property name="foodDirect" type="java.lang.String">
+			<column name="food_direct" length="100">
+				<comment>食物指导</comment>
+			</column>
+		</property>
+		<property name="drugSuggest" type="java.lang.String">
+			<column name="drug_suggest" length="100">
+				<comment>药物建议</comment>
+			</column>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="200">
+				<comment>备注</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" not-null="true">
+				<comment>指导人</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>指导时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

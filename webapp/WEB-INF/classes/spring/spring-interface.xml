@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- GSM设备上传数据 -->
+	<bean id="gsmDataAction" class="com.yzxt.tran.GsmDataAction"
+		scope="prototype">
+		<property name="checkDataService" ref="checkDataService" />
+		<property name="userDeviceService" ref="userDeviceService" />
+		<property name="pressurePulseService" ref="pressurePulseService" />
+		<property name="bloodSugarService" ref="bloodSugarService" />
+	</bean>
+	<bean id="surezenDataAction" class="com.yzxt.tran.SurezenDataAction"
+		scope="prototype">
+		<property name="customerService" ref="customerService" />
+		<property name="userService" ref="userService" />
+		<property name="pressurePulseService" ref="pressurePulseService" />
+		<property name="bloodOxygenService" ref="bloodOxygenService" />
+		<property name="bloodSugarService" ref="bloodSugarService" />
+		<property name="temperatureService" ref="temperatureService" />
+		<property name="analysisUricAcidService" ref="analysisUricAcidService" />
+	</bean>
+	<!-- 河北循证腕表 -->
+	<bean id="surezenHandle" class="com.yzxt.yh.eif.surezen.SurezenHandle"
+		scope="prototype">
+		<property name="userDeviceService" ref="userDeviceService" />
+		<property name="customerService" ref="customerService" />
+		<property name="pulseService" ref="pulseService" />
+		<property name="temperatureService" ref="temperatureService" />
+		<property name="pressurePulseService" ref="pressurePulseService" />
+		<property name="bloodSugarService" ref="bloodSugarService" />
+		<property name="custPositionService" ref="custPositionService" />
+		<property name="stepService" ref="stepService" />
+		<property name="sleepService" ref="sleepService" />
+		<property name="sleepQualityService" ref="sleepQualityService" />
+		<property name="remindService" ref="remindService" />
+	</bean>
+	<bean id="surezenHandleProxy" class="com.yzxt.yh.eif.surezen.SurezenHandleProxy"
+		scope="prototype">
+		<property name="surezenHandle" ref="surezenHandle" />
+	</bean>
+	<!-- 登录信息 -->
+	<bean id="welcomeBaseTranAction" class="com.yzxt.tran.WelcomeTranAction"
+		abstract="true">
+		<property name="userService" ref="userService" />
+		<property name="fileDescService" ref="fileDescService" />
+		<property name="physiologIndexService" ref="physiologIndexService" />
+		<property name="customerService" ref="customerService" />
+		<property name="orgService" ref="orgService" />
+		<property name="loginRecordService" ref="loginRecordService" />
+		<property name="pushUserService" ref="pushUserService" />
+	</bean>
+	<bean id="welcomeTranAction" class="com.yzxt.tran.WelcomeTranAction"
+		scope="prototype" parent="welcomeBaseTranAction">
+	</bean>
+	<!-- 推送用户映射信息 -->
+	<bean id="pushUserTranAction" class="com.yzxt.tran.PushUserTranAction"
+		scope="prototype">
+		<property name="pushUserService" ref="pushUserService" />
+	</bean>
+	<!-- 中兴健康数据推送 -->
+	<bean id="doctorTranAction" class="com.yzxt.tran.DoctorTranAction"
+		scope="prototype">
+		<property name="doctorService" ref="doctorService" />
+		<property name="archiveService" ref="archiveService" />
+		<property name="customerService" ref="customerService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<!-- 客户签约 -->
+	<bean id="memberInfoTranAction" class="com.yzxt.tran.MemberInfoTranAction"
+		scope="prototype">
+		<property name="memberInfoService" ref="memberInfoService" />
+		<property name="customerService" ref="customerService" />
+	</bean>
+	<!-- 检测信息 -->
+	<bean id="checkDataTranAction" class="com.yzxt.tran.CheckDataTranAction"
+		scope="prototype">
+		<property name="pulseService" ref="pulseService" />
+		<property name="pressurePulseService" ref="pressurePulseService" />
+		<property name="bloodSugarService" ref="bloodSugarService" />
+		<property name="bloodOxygenService" ref="bloodOxygenService" />
+		<property name="temperatureService" ref="temperatureService" />
+		<property name="totalCholesterolService" ref="totalCholesterolService" />
+		<property name="uricAcidService" ref="uricAcidService" />
+		<property name="analysisUricAcidService" ref="analysisUricAcidService" />
+		<property name="userService" ref="userService" />
+		<property name="familyService" ref="familyService" />
+		<property name="bodyFatService" ref="bodyFatService" />
+	</bean>
+	<!-- 告警信息 -->
+	<bean id="chrWarnTranAction" class="com.yzxt.tran.ChrWarnTransAction"
+		scope="prototype">
+		<property name="checkWarnService" ref="checkWarnService" />
+	</bean>
+	<!-- 分析报告 -->
+	<bean id="analysisReportTranAction" class="com.yzxt.tran.AnalysisReportTranAction"
+		scope="prototype">
+		<property name="analysisReportService" ref="analysisReportService" />
+		<property name="customerService" ref="customerService" />
+		<property name="checkReportService" ref="checkReportService" />
+	</bean>
+	<!-- 健康问答 -->
+	<bean id="caskTransAction" class="com.yzxt.tran.AskTransAction"
+		scope="prototype">
+		<property name="askService" ref="askService" />
+	</bean>
+	<!-- 健康知识 -->
+	<bean id="cnlgTransAction" class="com.yzxt.tran.NlgTransAction"
+		scope="prototype">
+		<property name="knowledgeService" ref="knowledgeService" />
+		<property name="knowledgeCatalogService" ref="knowledgeCatalogService" />
+	</bean>
+	<!-- 健康资讯 -->
+	<bean id="cinfoTransAction" class="com.yzxt.tran.InfoTransAction"
+		scope="prototype">
+		<property name="informationService" ref="informationService" />
+		<property name="infoCatalogService" ref="infoCatalogService" />
+	</bean>
+	<!-- 客户端APK -->
+	<bean id="sysTransAction" class="com.yzxt.tran.SysTransAction"
+		scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="clientVersionService" ref="clientVersionService" />
+	</bean>
+	<!-- 客户端注册 -->
+	<bean id="userRegisterTransAction" class="com.yzxt.tran.UserRegisterTransAction"
+		scope="prototype">
+		<property name="customerService" ref="customerService" />
+		<property name="userService" ref="userService" />
+		<property name="orgService" ref="orgService" />
+	</bean>
+	<!-- 客服端设备 -->
+	<bean id="deviceTranAction" class="com.yzxt.tran.DeviceTranAction"
+		scope="prototype">
+		<property name="userDeviceService" ref="userDeviceService" />
+		<property name="deviceInfoService" ref="deviceInfoService" />
+		<property name="deviceConfigService" ref="deviceConfigService" />
+		<!-- <property name="orgService" ref="orgService" /> -->
+	</bean>
+	<!-- 客户信息 -->
+	<bean id="customerTranAction" class="com.yzxt.tran.CustomerTranAction"
+		scope="prototype">
+		<property name="customerService" ref="customerService" />
+	</bean>
+	<!-- 档案 -->
+	<bean id="archiveTranAction" class="com.yzxt.tran.ArchiveTranAction"
+		scope="prototype">
+		<property name="archiveService" ref="archiveService" />
+		<property name="customerService" ref="customerService" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<!-- 图片病历 -->
+	<bean id="dossierTranAction" class="com.yzxt.tran.DossierTranAction"
+		scope="prototype">
+		<property name="dossierService" ref="dossierService" />
+	</bean>
+	<!-- 电子病历 -->
+	<bean id="emrTranAction" class="com.yzxt.tran.EmrTranAction"
+		scope="prototype">
+		<property name="emrService" ref="emrService" />
+	</bean>
+	<!-- 体检 -->
+	<bean id="examTranAction" class="com.yzxt.tran.ExamTranAction"
+		scope="prototype">
+		<property name="examService" ref="examService" />
+	</bean>
+	<!-- 慢病列表 -->
+	<bean id="chrManageTranAction" class="com.yzxt.tran.ChrManageTransAction"
+		scope="prototype">
+		<property name="chrManageService" ref="chrManageService" />
+	</bean>
+	<!-- 随访 -->
+	<bean id="chrVisitTranAction" class="com.yzxt.tran.ChrVisitTranAction"
+		scope="prototype">
+		<property name="chrVisitService" ref="chrVisitService" />
+		<property name="chrGlyInfoService" ref="chrGlyInfoService" />
+		<property name="chrPreService" ref="chrPreService" />
+	</bean>
+	<!-- 家庭圈 -->
+	<bean id="familyTranAction" class="com.yzxt.tran.FamilyTranAction"
+		scope="prototype">
+		<property name="customerService" ref="customerService" />
+		<property name="familyService" ref="familyService" />
+		<property name="physiologIndexService" ref="physiologIndexService" />
+	</bean>
+	<!-- 中兴残联接口 -->
+	<bean id="zteSunHomeWelcomeTranAction" class="com.yzxt.yh.eif.zsh.action.ZteSunHomeWelcomeTranAction"
+		scope="prototype" parent="welcomeBaseTranAction">
+	</bean>
+	<bean id="zteSunHomeHandleAction" class="com.yzxt.yh.eif.zsh.action.ZteSunHomeHandleAction"
+		scope="prototype">
+	</bean>
+	<!-- 健康管理（运动日志，食物日志，健康计划） -->
+	<bean id="healthyPlanTranAction" class="com.yzxt.tran.HealthyPlanTranAction"
+		scope="prototype">
+		<property name="healthyPlanService" ref="healthyPlanService" />
+		<!-- <property name="examDataService" ref="examDataService"/> -->
+	</bean>
+	<bean id="sportLogTranAction" class="com.yzxt.tran.SportLogTranAction"
+		scope="prototype">
+		<property name="sportLogService" ref="sportLogService" />
+		<property name="sportService" ref="sportService" />
+	</bean>
+	<bean id="dietaryLogTranAction" class="com.yzxt.tran.DietaryLogTranAction"
+		scope="prototype">
+		<property name="dietaryLogService" ref="dietaryLogService" />
+		<property name="foodService" ref="foodService" />
+		<property name="foodCatalogService" ref="foodCatalogService" />
+	</bean>
+	<!-- 健康指导 -->
+	<bean id="healthyGuideTranAction" class="com.yzxt.tran.HealthyGuideTranAction"
+		scope="prototype">
+		<property name="healthyGuideService" ref="healthyGuideService" />
+	</bean>
+	<!-- 客户生活信息类 -->
+	<bean id="custLifeTranAction" class="com.yzxt.tran.CustLifeTranAction"
+		scope="prototype">
+		<property name="familyService" ref="familyService" />
+		<property name="remindService" ref="remindService" />
+		<property name="sleepQualityService" ref="sleepQualityService" />
+		<property name="sleepService" ref="sleepService" />
+		<property name="stepService" ref="stepService" />
+	</bean>
+	<!-- 腕表设置参数 -->
+	<bean id="wbConfigTranAction" class="com.yzxt.tran.WbConfigTranAction"
+		scope="prototype">
+		<property name="wbConfigService" ref="wbConfigService" />
+		<property name="custPositionService" ref="custPositionService" />
+	</bean>
+	<!-- 围栏告警 -->
+	<bean id="fenceWarnTranAction" class="com.yzxt.tran.FenceWarnTranAction"
+		scope="prototype">
+		<property name="fenceWarnService" ref="fenceWarnService" />
+	</bean>
+	<!-- 预约挂号 -->
+	<bean id="appointTranAction" class="com.yzxt.tran.AppointTranAction"
+		scope="prototype">
+		<property name="appointService" ref="appointService" />
+		<property name="familyService" ref="familyService" />
+	</bean>
+</beans>

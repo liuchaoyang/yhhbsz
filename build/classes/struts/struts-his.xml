@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="his_action" extends="struts-default" namespace="/his">
+		<action name="appoint_*" class="appointAction" method="{1}">
+			<result name="edit">/his/addAppoint.jsp</result>
+			<result name="detail">/his/appointView.jsp</result>
+			<result name="update">/his/dealAppoint.jsp</result>
+		</action>
+		<action name="dzcf_*" class="dzcfAction" method="{1}">
+			<!-- <result name="editYp">/his/ypList.jsp</result>
+			<result name="add">/his/addChufang.jsp</result> -->
+			<result name="add">/his/ypList.jsp</result>
+			<result name="detail">/his/ypDetail.jsp</result>
+			<result name="list">/his/chufangList.jsp</result>
+		</action>
+	</package>
+</struts>

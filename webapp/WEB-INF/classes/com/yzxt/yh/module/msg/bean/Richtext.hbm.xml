@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.msg.bean.Richtext" table="msg_richtext"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="summary" type="java.lang.String">
+			<column name="summary" length="100">
+				<comment>富文本信息简介</comment>
+			</column>
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="content">
+				<comment>富文本内容</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

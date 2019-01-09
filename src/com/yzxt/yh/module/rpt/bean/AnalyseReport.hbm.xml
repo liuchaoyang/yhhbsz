@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.rpt.bean.AnalysisReport" table="rpt_analysis_report"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="pressId" type="java.lang.String">
+			<column name="pressId" length="36" not-null="true">
+			</column>
+		</property>
+		<property name="examBeginTime" type="java.util.Date">
+			<column name="exam_begin_time" length="10" />
+		</property>
+		<property name="examEndTime" type="java.util.Date">
+			<column name="exam_end_time" length="10" />
+		</property>
+		<property name="reportType" type="java.lang.Integer">
+			<column name="report_type">
+				<comment>报告类型：1：血压，2：血糖</comment>
+			</column>
+		</property>
+		<property name="suggest" type="java.lang.String">
+			<column name="suggest">
+				<comment>医生建议</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36">
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19">
+			</column>
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36">
+			</column>
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

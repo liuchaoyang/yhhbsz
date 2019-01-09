@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="msg_action" extends="struts-default" namespace="/msg">
+		<action name="consultGuide_*" class="consultGuideAction"
+			method="{1}">
+			<result name="detail">/msg/consultView.jsp</result>
+			<result name="edit">/msg/consultAdd.jsp</result>
+			<result name="update">/msg/consultReply.jsp</result>
+			<result name="myConsult">/msg/myConsults.jsp</result>
+		</action>
+		<action name="heaGuide_*" class="healthyGuideAction" method="{1}">
+			<result name="detail">/msg/healthyDirectView.jsp</result>
+			<result name="custGuide">/msg/healthyDirects.jsp</result>
+			<result name="edit">/msg/healthyDirectAdd.jsp</result>
+		</action>
+		<action name="info_*" class="informationAction" method="{1}">
+			<result name="edit">/msg/infoEdit.jsp</result>
+			<result name="view">/msg/infoView.jsp</result>
+			<result name="list">/msg/infos.jsp</result>
+			<result name="editError">/msg/editError.jsp</result>
+		</action>
+
+		<action name="infoCatalog_*" class="infoCatalogAction" method="{1}">
+			<result name="details">/msg/col_manager.jsp</result>
+			<result name="details">/msg/col_manager.jsp</result>
+		</action>
+
+		<!-- 健康知识 -->
+		<action name="nlg_*" class="knowledgeAction" method="{1}">
+			<result name="edit">/msg/nlgEdit.jsp</result>
+			<result name="view">/msg/nlgView.jsp</result>
+			<result name="list">/msg/nlsList.jsp</result>
+			<result name="editError">/msg/editError.jsp</result>
+			<result name="success">/msg/index.jsp</result>
+			<result name="error">/msg/error.jsp</result>
+			<param name="allowedTypes">excel/xlsx,excel/xls</param>
+		</action>
+		<action name="nlgCata_*" class="knowledgeCatalogAction" method="{1}">
+		</action>
+
+		<!-- 健康问答 -->
+		<action name="ask_*" class="askAction" method="{1}">
+			<result name="edit">/msg/askEdit.jsp</result>
+			<result name="view">/msg/askView.jsp</result>
+			<result name="list">/msg/askList.jsp</result>
+			<result name="editError">/msg/editError.jsp</result>
+		</action>
+	</package>
+</struts>

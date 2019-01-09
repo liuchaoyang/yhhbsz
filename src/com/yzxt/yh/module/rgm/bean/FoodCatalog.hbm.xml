@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.rgm.bean.FoodCatalog" table="rgm_food_catalog"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="parentId" type="java.lang.String">
+			<column name="parent_id" length="36">
+				<comment>父ID</comment>
+			</column>
+		</property>
+		<property name="level" type="java.lang.Integer">
+			<column name="level" not-null="true">
+				<comment>食物分类等级，值为1或2</comment>
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50" not-null="true">
+				<comment>食物分类名称</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true" />
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

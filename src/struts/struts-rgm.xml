@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="rgm_action" extends="struts-default" namespace="/rgm">
+		<action name="food_*" class="foodAction" method="{1}">
+			<result name="list">/rgm/foodList.jsp</result>
+			<result name="edit">/msg/infoEdit.jsp</result>
+			<result name="view">/msg/infoView.jsp</result>
+			<result name="editError">/msg/editError.jsp</result>
+		</action>
+		<action name="healthyPlan_*" class="healthyPlanAction" method="{1}">
+			<result name="list">/rgm/healthyPlanList.jsp</result>
+			<result name="edit">/rgm/healthyPlanEdit.jsp</result>
+			<result name="bpView">/rgm/healthyPlanBPView.jsp</result>
+			<result name="bsView">/rgm/healthyPlanBSView.jsp</result>
+		</action>
+		<action name="sport_*" class="sportAction" method="{1}">	
+		 </action>
+		<action name="sportLog_*" class="sportLogAction" method="{1}">
+			<result name="details">/rgm/check_sport.jsp</result>
+			<result name="edit">/rgm/edit_sport.jsp</result>
+			<result name="addLog">/rgm/healthy_log.jsp</result>	
+		 </action>
+		 <action name="dietaryLog_*" class="dietaryLogAction" method="{1}">
+			<result name="details">/rgm/check_food.jsp</result>	
+			<result name="edit">/rgm/edit_food.jsp</result>
+		 </action>
+	</package>
+</struts>
+    

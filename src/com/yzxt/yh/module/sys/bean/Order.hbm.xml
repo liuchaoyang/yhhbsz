@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.Order" table="orders">
+		<id name="oid" type="java.lang.String">
+			<column name="oid" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+		
+		<property name="total"/>
+		<property name="ordertime"/>
+		<property name="count"/>
+		<property name="state"/>
+		<property name="name"/>
+		<property name="phone"/>
+		<property name="addr"/>
+		<property name="doctorId"/>
+		<property name="file"/>
+		<property name="uid"/>
+		<property name="type"/>
+		
+	<!-- 订单与用户关联配置 -->
+		<!-- <many-to-one name="user" lazy="false" class="com.yzxt.yh.module.sys.bean.User" column="uid"/> -->
+	
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.yzxt.yh.module.chk.bean.DeviceConfig" table="chk_device_config" catalog="">
+        <id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+        <property name="deviceTypeCode" type="java.lang.String">
+            <column name="device_type_code" length="36" not-null="true">
+                <comment>设备类别id</comment>
+            </column>
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="user_name" length="36" >
+                <comment>设备用户名字：1 爸爸键，2 妈妈键</comment>
+            </column>
+        </property>
+        <property name="val" type="java.lang.String">
+            <column name="val" length="10" >
+                <comment>设备用户值代表：1 爸爸键，2 妈妈键</comment>
+            </column>
+        </property>
+        <property name="seq" type="java.lang.Integer">
+            <column name="seq" >
+                <comment>序列号</comment>
+            </column>
+        </property>
+        <property name="createBy" type="java.lang.String">
+            <column name="create_by" length="36" not-null="true"  />
+        </property>
+        <property name="createTime" type="java.sql.Timestamp">
+            <column name="create_time" length="19" not-null="true" />
+        </property>
+        <property name="updateBy" type="java.lang.String">
+            <column name="update_by" length="36" not-null="true" />
+        </property>
+        <property name="updateTime" type="java.sql.Timestamp">
+            <column name="update_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

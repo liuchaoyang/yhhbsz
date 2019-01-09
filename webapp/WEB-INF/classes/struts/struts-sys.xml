@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="sys_action" extends="struts-default,json-default"
+		namespace="/sys">
+		<action name="wel_*" class="welcomeAction" method="{1}">
+			<result name="login">/portal/login.jsp</result>
+			<result name="main">/portal/main.jsp</result>
+			<result name="adminHome">/portal/adminHome.jsp</result>
+			<result name="doctorHome">/portal/doctorHome.jsp</result>
+			<result name="customerHome">/portal/customerHome.jsp</result>
+			<result name="detail">/pub/register.jsp</result>
+			<result name="reset">/pub/reSetPwd.jsp</result>
+		</action>
+		<action name="loginRecord_*" class="loginRecordAction" method="{1}">
+		</action>
+		<action name="org_*" class="orgAction" method="{1}">
+			<result name="edit">/sys/org/orgEdit.jsp</result>
+		</action>
+		<action name="fd_*" class="fileDescAction" method="{1}">
+		</action>
+		<action name="doctor_*" class="doctorAction" method="{1}">
+		</action>
+		<action name="cust_*" class="customerAction" method="{1}">
+			<result name="view">/sys/customer/customerView.jsp</result>
+			<result name="edit">/sys/customer/customerEdit.jsp</result>
+			<result name="pd">/sys/customer/custInfo.jsp</result>
+			<result name="detail">/sys/customer/familyMng.jsp</result>
+			<result name="accountView">/sys/customer/accountView.jsp</result>
+			<result name="accountEdit">/sys/customer/accountEdit.jsp</result>
+		</action>
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="list">/sys/admin/admins.jsp</result>
+			<result name="edit">/sys/admin/adminEdit.jsp</result>
+		</action>
+		<action name="role_*" class="roleAction" method="{1}">
+			<result name="edit">/sys/auth/roleEdit.jsp</result>
+			<result name="roleRess">/sys/auth/roleMenusEdit.jsp</result>
+		</action>
+		<action name="userrole_*" class="userRoleAction" method="{1}">
+			<result name="detail">/sys/auth/userRoleEdit.jsp</result>
+		</action>
+		<action name="family_*" class="familyAction" method="{1}">
+		</action>
+	</package>
+	<package name="sys_common" extends="struts-default" namespace="/pub">
+		<action name="cf_*" class="commonFileAction" method="{1}">
+		</action>
+		<action name="cv_*" class="clientVersionAction" method="{1}">
+			<result name="clientApps">/sys/clientApps.jsp</result>
+			<result name="clientPage">/sys/clientPage.jsp</result>
+		</action>
+		<action name="help_*" class="helpAction" method="{1}">
+			<result name="list">/pub/help/helps.jsp</result>
+			<result name="client">/pub/help/client.jsp</result>
+		</action>
+	</package>
+</struts>

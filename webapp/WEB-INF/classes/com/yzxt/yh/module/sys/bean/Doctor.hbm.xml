@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.Doctor" table="sys_doctor"
+		catalog="">
+		<id name="userId" type="java.lang.String">
+			<column name="user_id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="sex" type="java.lang.Integer">
+			<column name="sex">
+				<comment>性别</comment>
+			</column>
+		</property>
+		<property name="birthday" type="java.util.Date">
+			<column name="birthday" length="10" />
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="100">
+				<comment>地址</comment>
+			</column>
+		</property>
+		<property name="degree" type="java.lang.Integer">
+			<column name="degree">
+				<comment>文化程度</comment>
+			</column>
+		</property>
+		<property name="professionTitle" type="java.lang.String">
+			<column name="profession_title" length="20">
+				<comment>职称</comment>
+			</column>
+		</property>
+		<property name="deptName" type="java.lang.String">
+			<column name="dept_name" length="20">
+				<comment>科室</comment>
+			</column>
+		</property>
+		<property name="skillInfo" type="java.lang.String">
+			<column name="skill_info" length="100">
+				<comment>科室</comment>
+			</column>
+		</property>
+		<property name="describe" type="java.lang.String">
+			<column name="describe_" length="200">
+				<comment>简介</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" not-null="true">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36" not-null="true">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

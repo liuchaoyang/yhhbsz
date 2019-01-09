@@ -1,0 +1,74 @@
+/*easy-ui add b*/
+/* a.l-btn-disabled {
+  background-image: url('../../resources/css/images/linkbutton_bg_disabled.png');
+}
+a.l-btn-disabled>span.l-btn-left{
+	background-image: url('../../resources/css/images/linkbutton_bg_disabled.png');
+} */
+/*easy-ui add e*/
+body {
+	font-size: 13px;
+	margin: 5px;
+	padding: 0px;
+	height: auto;
+	width: auto;
+	overflow: auto;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #DFDFDF;
+}
+
+.table td {
+	border: 1px solid #DFDFDF;
+	padding: 5px;
+}
+
+.table .td_title {
+	text-align: right;
+	background: #F7F7F7;
+}
+
+.table td_value {
+	
+}
+.table .td_oper{
+	text-align: right;
+}
+
+input[type="text"] {
+	width: 150px;
+}
+
+select {
+	width: 110px;
+}
+
+.sectionTitle {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background: #E4F4E9;
+	color: #0E2D5F;
+	padding: 11px;
+	border: 1px solid #DDDDDD;
+	border-bottom: none;
+}
+
+.must{
+	color: #FF0000;
+}
+
+.block-center{
+	margin-left: auto;
+	margin-right: auto;
+}

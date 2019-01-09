@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.msg.bean.InfoCatalogAuth" table="msg_info_catalog_auth"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="columnId" type="java.lang.String">
+			<column name="column_id" length="36" not-null="true">
+				<comment>资讯栏目ID</comment>
+			</column>
+		</property>
+		<property name="authUserType" type="java.lang.Integer">
+			<column name="auth_user_type" not-null="true">
+				<comment>授权用户类型</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

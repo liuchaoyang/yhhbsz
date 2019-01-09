@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.msg.bean.ConsultGuide" table="msg_consult_guide"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="consultTitle" type="java.lang.String">
+			<column name="consult_title" length="100" not-null="true">
+				<comment>咨询标题</comment>
+			</column>
+		</property>
+		<property name="consultContext" type="java.lang.String">
+			<column name="consult_context" length="200" not-null="true">
+				<comment>咨询内容</comment>
+			</column>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" not-null="true">
+				<comment>回复状态：1：未回复，2：已回复</comment>
+			</column>
+		</property>
+		<property name="doctorId" type="java.lang.String">
+			<column name="doctor_id" length="36" not-null="true">
+				<comment>医生ID</comment>
+			</column>
+		</property>
+		<property name="guideContext" type="java.lang.String">
+			<column name="guide_context" length="200">
+				<comment>指导内容</comment>
+			</column>
+		</property>
+		<property name="consultTime" type="java.sql.Timestamp">
+			<column name="consult_time" length="19" not-null="true">
+				<comment>咨询时间</comment>
+			</column>
+		</property>
+		<property name="guideTime" type="java.sql.Timestamp">
+			<column name="guide_time" length="19">
+				<comment>指导时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

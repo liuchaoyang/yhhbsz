@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.ClientVersion" table="sys_client_version"
+		catalog="">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" length="4" />
+			<generator class="assigned" />
+		</id>
+		<property name="appType" type="java.lang.String">
+			<column name="app_type" length="30" not-null="true">
+			</column>
+		</property>
+		<property name="deviceType" type="java.lang.String">
+			<column name="device_type" length="20" not-null="true">
+			</column>
+		</property>
+		<property name="version" type="java.lang.String">
+			<column name="version" length="20" not-null="true">
+			</column>
+		</property>
+		<property name="versionNum" type="java.lang.Integer">
+			<column name="version_num" length="4" not-null="true">
+			</column>
+		</property>
+		<property name="path" type="java.lang.String">
+			<column name="path" length="100">
+			</column>
+		</property>
+		<property name="qrCodeName" type="java.lang.String">
+			<column name="qr_code_name" length="50">
+			</column>
+		</property>
+		<property name="showImg" type="java.lang.String">
+			<column name="show_img" length="50" not-null="true">
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name_" length="50">
+			</column>
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="remark" length="255">
+			</column>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" length="4" not-null="true">
+			</column>
+		</property>
+		<property name="seq" type="java.lang.Integer">
+			<column name="seq" length="4" not-null="true">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

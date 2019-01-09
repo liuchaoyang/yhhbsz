@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.PushUser" table="sys_push_user"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="userId" type="java.lang.String">
+			<column name="user_id" length="36" not-null="true">
+			</column>
+		</property>
+		<property name="pushChannelId" type="java.lang.String">
+			<column name="push_channel_id" length="20" not-null="true">
+			</column>
+		</property>
+		<property name="deviceType" type="java.lang.Integer">
+			<column name="device_type" precision="4" scale="0" not-null="true">
+			</column>
+		</property>
+		<property name="pushUserId" type="java.lang.String">
+			<column name="push_user_id" length="20">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

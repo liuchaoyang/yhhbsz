@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.ExamHospitalHis" table="chk_exam_hospital_his"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="examId" type="string">
+			<column name="exam_id" length="36" not-null="true">
+				<comment>外键ID 关联chk_health_exam的ID</comment>
+			</column>
+		</property>
+		<property name="inTime" type="timestamp">
+			<column name="in_time" length="19">
+				<comment>入院时间</comment>
+			</column>
+		</property>
+		<property name="outTime" type="timestamp">
+			<column name="out_time" length="19">
+				<comment>出院时间</comment>
+			</column>
+		</property>
+		<property name="hosDept" type="string">
+			<column name="hos_dept" length="100">
+				<comment>医疗机构名称</comment>
+			</column>
+		</property>
+		<property name="admissionReason" type="string">
+			<column name="admission_reason" length="100">
+				<comment>原因</comment>
+			</column>
+		</property>
+		<property name="recordNo" type="string">
+			<column name="record_no" length="20">
+				<comment>病案号</comment>
+			</column>
+		</property>
+		<property name="seq" type="integer">
+			<column name="seq" not-null="true">
+				<comment>顺序号，从0开始</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

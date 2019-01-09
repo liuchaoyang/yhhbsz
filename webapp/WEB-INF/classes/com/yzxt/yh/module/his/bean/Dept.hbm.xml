@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.yzxt.yh.module.his.bean.Dept" table="his_dept" catalog="">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="36" />
+            <generator class="uuid.hex" />
+        </id>
+        <property name="parentId" type="java.lang.String">
+            <column name="parent_id" length="50">
+                <comment>级别id</comment>
+            </column>
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level" >
+                <comment>级别 医院：0；科室：1；二级科室：2</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name_" length="50">
+                <comment>名字</comment>
+            </column>
+        </property>
+        <property name="memo" type="java.lang.String">
+            <column name="memo" length="100">
+                <comment>备注</comment>
+            </column>
+        </property>
+        <property name="createBy" type="java.lang.String">
+            <column name="create_by" length="36">
+                <comment>创建人</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.sql.Timestamp">
+            <column name="create_time" length="19" not-null="true">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="updateBy" type="java.lang.String">
+            <column name="update_by" length="36">
+                <comment>修改人</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="java.sql.Timestamp">
+            <column name="update_time" length="19" not-null="true">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

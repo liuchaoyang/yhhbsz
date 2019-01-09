@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 预约挂号 -->
+	<bean id="appointDao" class="com.yzxt.yh.module.his.dao.AppointDao"
+		parent="hibernateUtil" />
+	<bean id="deptDao" class="com.yzxt.yh.module.his.dao.DeptDao"
+		parent="hibernateUtil" />
+	<bean id="appointService" class="com.yzxt.yh.module.his.service.AppointService">
+		<property name="appointDao" ref="appointDao" />
+		<property name="deptDao" ref="deptDao" />
+	</bean>
+	<bean id="appointAction" class="com.yzxt.yh.module.his.action.AppointAction"
+		scope="prototype">
+		<property name="appointService" ref="appointService" />
+	</bean>
+</beans>

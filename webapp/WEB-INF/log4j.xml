@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} -- %p -- %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="DEBUG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${yh.root}/logs/yh-debug.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="ImmediateFlush" value="false" />
+		<param name="BufferedIO" value="true" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="3072KB" />
+		<param name="MaxBackupIndex" value="10000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+
+	</appender>
+
+	<appender name="INFO" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${yh.root}/logs/yh-info.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="ImmediateFlush" value="false" />
+		<param name="BufferedIO" value="true" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="3072KB" />
+		<param name="MaxBackupIndex" value="10000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="INFO" />
+		</filter>
+	</appender>
+
+	<appender name="WARN" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${yh.root}/logs/yh-warn.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="ImmediateFlush" value="false" />
+		<param name="BufferedIO" value="true" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="3072KB" />
+		<param name="MaxBackupIndex" value="10000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="WARN" />
+			<param name="LevelMax" value="WARN" />
+		</filter>
+	</appender>
+
+	<appender name="ERROR" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${yh.root}/logs/yh-error.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="ImmediateFlush" value="false" />
+		<param name="BufferedIO" value="true" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="10240KB" />
+		<param name="MaxBackupIndex" value="10000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<appender name="ASYNCOUT" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="INFO" />
+	</appender>
+	<appender name="ASYNCOUTDEBUG" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="DEBUG" />
+	</appender>
+
+	<category name="monitorLogger" additivity="false">
+		<priority value="INFO" />
+		<appender-ref ref="ASYNCOUT" />
+	</category>
+	<category name="monitorLoggerDEBUG" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="ASYNCOUTDEBUG" />
+	</category>
+
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="DEBUG" />
+		<appender-ref ref="INFO" />
+		<appender-ref ref="WARN" />
+		<appender-ref ref="ERROR" />
+	</root>
+
+</log4j:configuration>

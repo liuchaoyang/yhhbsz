@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.yzxt.yh.module.cli.bean.WbConfig" table="cli_wb_config" catalog="">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="custId" type="string">
+            <column name="cust_id" length="36" not-null="true">
+                <comment>对应用户</comment>
+            </column>
+        </property>
+        <property name="wbName" type="java.lang.String">
+            <column name="wb_name" length="100" >
+                <comment>对应用户名称</comment>
+            </column>
+        </property>
+        <property name="deviceId" type="string">
+            <column name="device_id" length="50" not-null="true">
+                <comment>设备ID</comment>
+            </column>
+        </property>
+        <property name="state" type="integer">
+            <column name="state" not-null="true">
+                <comment>设置状态是否有效：1 有效，2 无效</comment>
+            </column>
+        </property>
+         <property name="imgFileId" type="java.lang.String">
+			<column name="img_file_id" length="36">
+			</column>
+		</property>
+		<property name="sex" type="java.lang.Integer">
+			<column name="sex">
+				<comment>性别</comment>
+			</column>
+		</property>
+		<property name="birthday" type="java.util.Date">
+			<column name="birthday" length="10" />
+		</property>
+		<property name="height" type="java.lang.Double">
+			<column name="height" precision="6">
+				<comment>身高（m）</comment>
+			</column>
+		</property>
+		<property name="weight" type="java.lang.Double">
+			<column name="weight" precision="6">
+				<comment>体重（kg）</comment>
+			</column>
+		</property>
+		<property name="step" type="java.lang.Integer">
+			<column name="step">
+				<comment>步长（cm）</comment>
+			</column>
+		</property>
+        <property name="pluseMin" type="integer">
+            <column name="pluse_min">
+                <comment>心率下限</comment>
+            </column>
+        </property>
+        <property name="pluseMax" type="integer">
+            <column name="pluse_max">
+                <comment>心率上限</comment>
+            </column>
+        </property>
+        <property name="pluseStartTime" type="string">
+            <column name="pluse_start_time" length="20">
+                <comment>心率定时测量开始时间</comment>
+            </column>
+        </property>
+        <property name="pluseEndTime" type="string">
+            <column name="pluse_end_time" length="20">
+                <comment>心率定时测试结束时间</comment>
+            </column>
+        </property>
+        <property name="pluseSpan" type="integer">
+            <column name="pluse_span">
+                <comment>心率时间间隔</comment>
+            </column>
+        </property>
+        <property name="pluseWarning" type="integer">
+            <column name="pluse_warning">
+                <comment>心率警报：1：表示打开警报;-1：表示关闭警报</comment>
+            </column>
+        </property>
+        <property name="stepTarget" type="integer">
+            <column name="step_target">
+                <comment>每日目标步数</comment>
+            </column>
+        </property>
+        <property name="stepStartTime" type="string">
+            <column name="step_start_time" length="20">
+                <comment>计步定时测量开始时间</comment>
+            </column>
+        </property>
+        <property name="stepEndTime" type="string">
+            <column name="step_end_time" length="20">
+                <comment>计步定时测试结束时间</comment>
+            </column>
+        </property>
+        <property name="stepSpan" type="integer">
+            <column name="step_span">
+                <comment>计步时间间隔</comment>
+            </column>
+        </property>
+        <property name="positionStartTime" type="string">
+            <column name="position_start_time" length="20">
+                <comment>定位定时测量开始时间</comment>
+            </column>
+        </property>
+        <property name="positionEndTime" type="string">
+            <column name="position_end_time" length="20">
+                <comment>定位定时测试结束时间</comment>
+            </column>
+        </property>
+        <property name="positionSpan" type="integer">
+            <column name="position_span">
+                <comment>定位时间间隔</comment>
+            </column>
+        </property>
+        <property name="sleepStartTime" type="string">
+            <column name="sleep_start_time" length="20">
+                <comment>睡眠定时测量开始时间</comment>
+            </column>
+        </property>
+        <property name="sleepEndTime" type="string">
+            <column name="sleep_end_time" length="20">
+                <comment>睡眠定时测试结束时间</comment>
+            </column>
+        </property>
+        <property name="sleepStatus" type="integer">
+            <column name="sleep_status">
+                <comment>睡眠是否开启自动模式：1：开启，0：不开启</comment>
+            </column>
+        </property>
+        <property name="xtMaxGlucose" type="float">
+            <column name="xt_max_glucose" precision="6">
+                <comment>血糖范围-上限</comment>
+            </column>
+        </property>
+        <property name="xtMinGlucose" type="float">
+            <column name="xt_min_glucose" precision="6">
+                <comment>血糖范围-下限</comment>
+            </column>
+        </property>
+        <property name="xtWarning" type="integer">
+            <column name="xt_warning">
+                <comment>血糖警报：1：表示打开警报;-1：表示关闭警报</comment>
+            </column>
+        </property>
+        <property name="xyDiastolicMax" type="integer">
+            <column name="xy_diastolic_max">
+                <comment>舒张压上限</comment>
+            </column>
+        </property>
+        <property name="xyDiastolicMin" type="integer">
+            <column name="xy_diastolic_min">
+                <comment>舒张压下限</comment>
+            </column>
+        </property>
+        <property name="xySystolicMax" type="integer">
+            <column name="xy_systolic_max">
+                <comment>收缩压上限</comment>
+            </column>
+        </property>
+        <property name="xySystolicMin" type="integer">
+            <column name="xy_systolic_min">
+                <comment>收缩压下限</comment>
+            </column>
+        </property>
+        <property name="xyWarning" type="integer">
+            <column name="xy_warning">
+                <comment>血压警报：1：表示打开警报;-1：表示关闭警报</comment>
+            </column>
+        </property>
+        <property name="twStartTime" type="string">
+            <column name="tw_start_time" length="20">
+                <comment>体温定时测量开始时间</comment>
+            </column>
+        </property>
+        <property name="twEndTime" type="string">
+            <column name="tw_end_time" length="20">
+                <comment>体温定时测试结束时间</comment>
+            </column>
+        </property>
+        <property name="twSpan" type="integer">
+            <column name="tw_span">
+                <comment>体温时间间隔</comment>
+            </column>
+        </property>
+        <property name="twMaxTemperature" type="float">
+            <column name="tw_max_temperature" precision="6">
+                <comment>体温上限</comment>
+            </column>
+        </property>
+        <property name="twMinTemperature" type="float">
+            <column name="tw_min_temperature" precision="6">
+                <comment>体温下限</comment>
+            </column>
+        </property>
+        <property name="twWarning" type="integer">
+            <column name="tw_warning">
+                <comment>体温警报：1：表示打开警报;-1：表示关闭警报</comment>
+            </column>
+        </property>
+        <property name="remindList" type="string">
+            <column name="remind_list" length="300">
+                <comment>提醒内容</comment>
+            </column>
+        </property>
+       <!--  <property name="remindContent" type="string">
+            <column name="remind_content" length="100">
+                <comment>提醒内容</comment>
+            </column>
+        </property>
+        <property name="remindTime" type="string">
+            <column name="remind_time" length="20">
+                <comment>提醒时间</comment>
+            </column>
+        </property>
+        <property name="remindStatus" type="integer">
+            <column name="remind_status">
+                <comment>闹铃类型：1：开0：关闭</comment>
+            </column>
+        </property> -->
+        <property name="phones" type="string">
+            <column name="phones" length="100">
+                <comment>JSON数组 紧急号码列表</comment>
+            </column>
+        </property>
+        <property name="sittingStartTime" type="string">
+            <column name="sitting_start_time" length="20">
+                <comment>久坐定时测量开始时间</comment>
+            </column>
+        </property>
+        <property name="sittingEndTime" type="string">
+            <column name="sitting_end_time" length="20">
+                <comment>久坐定时测试结束时间</comment>
+            </column>
+        </property>
+        <property name="sittingWarning" type="integer">
+            <column name="sitting_warning">
+                <comment>是否开启自动模式：1：开启，-1：不开启</comment>
+            </column>
+        </property>
+        <property name="sosNums" type="string">
+            <column name="SOS_nums" length="100">
+                <comment>JSON数组 紧急号码列表</comment>
+            </column>
+        </property>
+        <property name="sosText" type="string">
+            <column name="SOS_text" length="100">
+                <comment>SOS短信内容</comment>
+            </column>
+        </property>
+        <property name="eleLatitude" type="double">
+			<column name="ele_latitude" precision="9" scale="6">
+				<comment>检测地址纬度</comment>
+			</column>
+		</property>
+		<property name="eleLongitude" type="double">
+			<column name="ele_longitude" precision="9" scale="6">
+				<comment>检测地址经度</comment>
+			</column>
+		</property>
+		<property name="eleDistance" type="java.lang.Integer">
+			<column name="ele_distance">
+				<comment>性别</comment>
+			</column>
+		</property>
+		<property name="eleAddress" type="string">
+			<column name="ele_address" length="100">
+				<comment>地址信息</comment>
+			</column>
+		</property>
+		<property name="eleTime" type="java.sql.Timestamp">
+			<column name="ele_time" length="19" >
+				<comment>设置时间</comment>
+			</column>
+		</property>
+        <property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true" />
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true" />
+		</property>
+    </class>
+</hibernate-mapping>

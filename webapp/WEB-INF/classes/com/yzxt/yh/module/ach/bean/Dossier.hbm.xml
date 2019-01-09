@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.ach.bean.Dossier" table="ach_dossier"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="string">
+			<column name="cust_id" length="36" not-null="true">
+			</column>
+		</property>
+		<property name="type" type="java.lang.Integer">
+			<column name="type_">
+			</column>
+		</property>
+		<property name="memo" type="string">
+			<column name="memo" length="50">
+			</column>
+		</property>
+		<property name="createBy" type="string">
+			<column name="create_by" length="36">
+			</column>
+		</property>
+		<property name="createTime" type="timestamp">
+			<column name="create_time" length="19" not-null="true">
+			</column>
+		</property>
+		<property name="updateBy" type="string">
+			<column name="update_by" length="36">
+			</column>
+		</property>
+		<property name="updateTime" type="timestamp">
+			<column name="update_time" length="19" not-null="true">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

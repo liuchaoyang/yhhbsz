@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="sys_pub" extends="struts-default" namespace="/pub">
+		<action name="data_*" class="gsmDataAction" method="{1}">
+		</action>
+		<!-- 河北循证（玺康） -->
+		<action name="seecon_*" class="surezenDataAction" method="{1}">
+		</action>
+		<!-- 容联云通讯 -->
+		<action name="ytxAuth_*" class="ytxAuthAction" method="{1}">
+		</action>
+		<!-- 中兴残联 -->
+		<action name="zshwel_*" class="zteSunHomeWelcomeTranAction"
+			method="{1}">
+		</action>
+		<action name="zsh_*" class="zteSunHomeHandleAction" method="{1}">
+		</action>
+		<!-- 推送用户映射信息 -->
+		<action name="cpushuser_*" class="pushUserTranAction" method="{1}" />
+		<!-- 推送用户映射信息 -->
+		<action name="cdoctor_*" class="doctorTranAction" method="{1}">
+		</action>
+	</package>
+	<package name="sys_mobile" extends="struts-default" namespace="/mobile">
+		<!-- 登录 -->
+		<action name="cwel_*" class="welcomeTranAction" method="{1}" />
+		<!-- 客户签约 -->
+		<action name="cmemberinfo_*" class="memberInfoTranAction"
+			method="{1}" />
+		<!-- 检测 -->
+		<action name="cdata_*" class="checkDataTranAction" method="{1}" />
+		<!-- 健康预警 -->
+		<action name="cchr_*" class="chrWarnTranAction" method="{1}" />
+		<!-- 分析报告 -->
+		<action name="creport_*" class="analysisReportTranAction"
+			method="{1}" />
+		<!-- 健康问答 -->
+		<action name="cask_*" class="caskTransAction" method="{1}">
+		</action>
+		<!-- 健康知识 -->
+		<action name="cnlg_*" class="cnlgTransAction" method="{1}">
+			<result name="view">/msg/nlgView.jsp</result>
+		</action>
+		<!-- 健康资讯 -->
+		<action name="cinfo_*" class="cinfoTransAction" method="{1}">
+			<result name="view">/msg/infoView.jsp</result>
+		</action>
+		<!-- 客服端版本 -->
+		<action name="csys_*" class="sysTransAction" method="{1}" />
+		<!-- 客户端注册 -->
+		<action name="cureg_*" class="userRegisterTransAction" method="{1}">
+		</action>
+		<!-- 客户端设备 -->
+		<action name="cdev_*" class="deviceTranAction" method="{1}">
+		</action>
+		<!-- 客户信息 -->
+		<action name="ccust_*" class="customerTranAction" method="{1}">
+		</action>
+		<!-- 档案 -->
+		<action name="carch_*" class="archiveTranAction" method="{1}">
+		</action>
+		<!-- 图片病历 -->
+		<action name="cdossier_*" class="dossierTranAction" method="{1}">
+		</action>
+		<!-- 电子病历 -->
+		<action name="cemr_*" class="emrTranAction" method="{1}">
+		</action>
+		<!-- 体检 -->
+		<action name="cexam_*" class="examTranAction" method="{1}">
+		</action>
+		<!-- 慢病列表 -->
+		<action name="cchrm_*" class="chrManageTranAction" method="{1}">
+		</action>
+		<!-- 随访 -->
+		<action name="cchrv_*" class="chrVisitTranAction" method="{1}">
+		</action>
+		<!-- 家庭圈 -->
+		<action name="cfamt_*" class="familyTranAction" method="{1}">
+		</action>
+		<!-- 自主健康管理 -->
+		<action name="chp_*" class="healthyPlanTranAction" method="{1}">
+		</action>
+		<!-- 自主健康日志 -->
+		<action name="cslog_*" class="sportLogTranAction" method="{1}">
+		</action>
+		<action name="cdlog_*" class="dietaryLogTranAction" method="{1}">
+		</action>
+		<!-- 健康指导 -->
+		<action name="cguide_*" class="healthyGuideTranAction" method="{1}">
+		</action>
+		<!-- 客户生活信息类 -->
+		<action name="ccli_*" class="custLifeTranAction" method="{1}">
+		</action>
+		<!-- 腕表参数 -->
+		<action name="cwbconfig_*" class="wbConfigTranAction" method="{1}">
+		</action>
+		<!-- 电子围栏 -->
+		<action name="cfencewarn_*" class="fenceWarnTranAction" method="{1}">
+		</action>
+		<!-- 预约挂号 -->
+		<action name="cappoint_*" class="appointTranAction" method="{1}">
+		</action>
+	</package>
+
+</struts>

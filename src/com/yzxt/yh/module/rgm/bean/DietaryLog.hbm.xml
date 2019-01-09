@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.rgm.bean.DietaryLog" table="rgm_dietary_log"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="dietaryType" type="java.lang.Integer">
+			<column name="dietary_type" not-null="true">
+				<comment>饮食类型,1：早餐，2：午餐，3：晚餐，4：加餐</comment>
+			</column>
+		</property>
+		<property name="dietaryTime" type="java.sql.Timestamp">
+			<column name="dietary_time" length="19" not-null="true">
+				<comment>饮食时间</comment>
+			</column>
+		</property>
+		<property name="foodId" type="java.lang.String">
+			<column name="food_id" length="36" not-null="true">
+				<comment>食物id</comment>
+			</column>
+		</property>
+		<property name="foodWeight" type="java.lang.Double">
+			<column name="food_weight" precision="6" not-null="true">
+				<comment>食物量（克）</comment>
+			</column>
+		</property>
+		<property name="userId" type="java.lang.String">
+			<column name="user_id" length="36" not-null="true" />
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" not-null="true" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true" />
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36" not-null="true" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

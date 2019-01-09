@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.DictDetail" table="sys_dict_detail"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="dictCode" type="java.lang.String">
+			<column name="dict_code" length="30" not-null="true">
+				<comment>字典编码</comment>
+			</column>
+		</property>
+		<property name="dictDetailCode" type="java.lang.String">
+			<column name="dict_detail_code" length="30" not-null="true">
+				<comment>字典明细编码</comment>
+			</column>
+		</property>
+		<property name="dictDetailName" type="java.lang.String">
+			<column name="dict_detail_name" length="50" not-null="true">
+				<comment>字典明细名称</comment>
+			</column>
+		</property>
+		<property name="seqNum" type="java.lang.Integer">
+			<column name="seq_num" not-null="true">
+				<comment>顺序号</comment>
+			</column>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" not-null="true">
+				<comment>使用状态，1：有效，2：无效</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

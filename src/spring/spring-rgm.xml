@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- 健康管理 -->
+	<!-- 运动日志 -->
+	<bean id="sportLogDao" class="com.yzxt.yh.module.rgm.dao.SportLogDao" parent="hibernateUtil"/>
+	<bean id="sportLogService" class="com.yzxt.yh.module.rgm.service.SportLogService">
+		<property name="sportLogDao" ref="sportLogDao"/>
+	</bean>
+	<bean id="sportLogAction" class="com.yzxt.yh.module.rgm.action.SportLogAction" scope="prototype">
+		<property name="sportLogService" ref="sportLogService"/>
+		<property name="sportService" ref="sportService"/>
+	</bean>
+	<!-- 运动 -->
+	<bean id="sportDao" class="com.yzxt.yh.module.rgm.dao.SportDao"  parent="hibernateUtil" />
+	<bean id="sportService" class="com.yzxt.yh.module.rgm.service.SportService" scope="prototype">
+		<property name="sportDao" ref="sportDao"/>
+	</bean>
+	<bean id="sportAction" class="com.yzxt.yh.module.rgm.action.SportAction" scope="prototype">
+		<property name="sportService" ref="sportService"/>
+	</bean>
+	<!-- 食物 分类-->
+	<bean id="foodCatalogDao" class="com.yzxt.yh.module.rgm.dao.FoodCatalogDao" parent="hibernateUtil"/>
+	<bean id="foodCatalogService" class="com.yzxt.yh.module.rgm.service.FoodCatalogService">
+		<property name="foodCatalogDao" ref="foodCatalogDao"/>
+	</bean>
+	<!-- 食物 -->
+	<bean id="foodDao" class="com.yzxt.yh.module.rgm.dao.FoodDao" parent="hibernateUtil"/>
+	<bean id="foodService" class="com.yzxt.yh.module.rgm.service.FoodService">
+		<property name="foodDao" ref="foodDao"/>
+		<property name="foodCatalogDao" ref="foodCatalogDao"/>
+	</bean>
+	<bean id="foodAction" class="com.yzxt.yh.module.rgm.action.FoodAction" scope="prototype">
+		<property name="foodService" ref="foodService"/>
+	</bean>
+	<!-- 食物 日志-->
+	<bean id="dietaryLogDao" class="com.yzxt.yh.module.rgm.dao.DietaryLogDao" parent="hibernateUtil"/>
+	<bean id="dietaryLogService" class="com.yzxt.yh.module.rgm.service.DietaryLogService">
+		<property name="dietaryLogDao" ref="dietaryLogDao"/>
+	</bean>
+	<bean id="dietaryLogAction" class="com.yzxt.yh.module.rgm.action.DietaryLogAction" scope="prototype">
+		<property name="dietaryLogService" ref="dietaryLogService"/>
+		<property name="foodService" ref="foodService"/>
+	</bean>
+	<!-- 健康计划-->
+	<bean id="healthyPlanDao" class="com.yzxt.yh.module.rgm.dao.HealthyPlanDao" parent="hibernateUtil"/>
+	<bean id="healthyPlanService" class="com.yzxt.yh.module.rgm.service.HealthyPlanService">
+		<property name="healthyPlanDao" ref="healthyPlanDao"/>
+	</bean>
+	<bean id="healthyPlanAction" class="com.yzxt.yh.module.rgm.action.HealthyPlanAction" scope="prototype">
+		<property name="healthyPlanService" ref="healthyPlanService"/>
+	</bean>
+	
+	
+</beans>

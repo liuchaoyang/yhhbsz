@@ -1,0 +1,22 @@
+com.opensymphony.xwork2.config.providers.XmlConfigurationProvider 2016-04-19 10:53:31 -- INFO -- Parsing configuration file [struts-default.xml]
+com.opensymphony.xwork2.config.providers.XmlConfigurationProvider 2016-04-19 10:53:31 -- INFO -- Parsing configuration file [struts-plugin.xml]
+com.opensymphony.xwork2.config.providers.XmlConfigurationProvider 2016-04-19 10:53:31 -- INFO -- Parsing configuration file [struts/struts.xml]
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (spring) for class com.opensymphony.xwork2.ObjectFactory
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for class com.opensymphony.xwork2.conversion.impl.XWorkConverter
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.TextProvider
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.ActionProxyFactory
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.conversion.ObjectTypeDeterminer
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface org.apache.struts2.dispatcher.mapper.ActionMapper
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (jakarta) for interface org.apache.struts2.dispatcher.multipart.MultiPartRequest
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for class org.apache.struts2.views.freemarker.FreemarkerManager
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface org.apache.struts2.components.UrlRenderer
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.validator.ActionValidatorManager
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.util.ValueStackFactory
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.util.reflection.ReflectionProvider
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.util.reflection.ReflectionContextFactory
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.util.PatternMatcher
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface org.apache.struts2.dispatcher.StaticContentLoader
+org.apache.struts2.config.BeanSelectionProvider 2016-04-19 10:53:31 -- INFO -- Choosing bean (struts) for interface com.opensymphony.xwork2.UnknownHandlerManager
+org.apache.struts2.spring.StrutsSpringObjectFactory 2016-04-19 10:53:32 -- INFO -- Initializing Struts-Spring integration...
+com.opensymphony.xwork2.spring.SpringObjectFactory 2016-04-19 10:53:32 -- INFO -- Setting autowire strategy to name
+org.apache.struts2.spring.StrutsSpringObjectFactory 2016-04-19 10:53:32 -- INFO -- ... initialized Struts-Spring integration successfully

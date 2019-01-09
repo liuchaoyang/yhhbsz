@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.Resource" table="sys_resource"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="parentId" type="java.lang.String">
+			<column name="parent_id" length="36">
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name_" length="50" not-null="true">
+			</column>
+		</property>
+		<property name="level" type="java.lang.Integer">
+			<column name="level" not-null="true">
+			</column>
+		</property>
+		<property name="type" type="java.lang.Integer">
+			<column name="type_" not-null="true">
+			</column>
+		</property>
+		<property name="icon" type="java.lang.String">
+			<column name="icon" length="20">
+			</column>
+		</property>
+		<property name="path" type="java.lang.String">
+			<column name="path" length="50">
+			</column>
+		</property>
+		<property name="seq" type="java.lang.Integer">
+			<column name="seq" not-null="true">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

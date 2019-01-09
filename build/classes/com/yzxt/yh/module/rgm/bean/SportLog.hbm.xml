@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.rgm.bean.SportLog" table="rgm_sport_log"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="sportId" type="java.lang.String">
+			<column name="sport_id" length="36" not-null="true">
+				<comment>运动编号</comment>
+			</column>
+		</property>
+		<property name="sportTime" type="java.sql.Timestamp">
+			<column name="sport_time" length="19" not-null="true">
+				<comment>运动时间</comment>
+			</column>
+		</property>
+		<property name="timeSpan" type="java.lang.Integer">
+			<column name="time_span" length="4" not-null="true">
+				<comment>运动时长（分钟）</comment>
+			</column>
+		</property>
+		<property name="userId" type="java.lang.String">
+            <column name="user_id" length="36" not-null="true">
+                <comment>用户id</comment>
+            </column>
+        </property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" not-null="true" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true" />
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36" not-null="true" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

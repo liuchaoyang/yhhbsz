@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.Temperature" table="chk_temperature"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="deviceName" type="java.lang.String">
+			<column name="device_name" length="50">
+				<comment>检测设备名称</comment>
+			</column>
+		</property>
+		<property name="deviceMac" type="java.lang.String">
+			<column name="device_mac" length="20">
+				<comment>检测设备蓝牙地址</comment>
+			</column>
+		</property>
+		<property name="latitude" type="java.lang.Double">
+			<column name="latitude" precision="9" scale="6">
+				<comment>检测地址纬度</comment>
+			</column>
+		</property>
+		<property name="longitude" type="java.lang.Double">
+			<column name="longitude" precision="9" scale="6">
+				<comment>检测地址经度</comment>
+			</column>
+		</property>
+		<property name="unit" type="java.lang.String">
+			<column name="unit" length="10">
+				<comment>单位</comment>
+			</column>
+		</property>
+		<property name="temperature" type="java.lang.Double">
+			<column name="temperature" precision="3" scale="1">
+				<comment>体温</comment>
+			</column>
+		</property>
+		<property name="level" type="java.lang.Integer">
+			<column name="level">
+				<comment>风险级别，-1：正常，1,：轻度，2：中度，3：重度</comment>
+			</column>
+		</property>
+		<property name="descript" type="java.lang.String">
+			<column name="descript">
+				<comment>风险描述</comment>
+			</column>
+		</property>
+		<property name="checkTime" type="java.sql.Timestamp">
+			<column name="check_time" length="19" not-null="true">
+				<comment>检测时间</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="checkType" type="java.lang.Integer">
+			<column name="check_type">
+				<comment>检测数据方式,1:机器检测的数据,2:手动录入的数据,11:个人版本机器检测的数据,12:个人版本手动输入的数据</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

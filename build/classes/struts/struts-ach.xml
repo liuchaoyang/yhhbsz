@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="ach_action" extends="struts-default" namespace="/ach">
+		<action name="ach_*" class="archiveAction" method="{1}">
+			<result name="view">/archive/archiveView.jsp</result>
+			<result name="edit">/archive/archiveEdit.jsp</result>
+		</action>
+		<action name="dossier_*" class="dossierAction" method="{1}">
+			<result name="myDossiers">/archive/myDossiers.jsp</result>
+			<result name="view">/archive/dossierView.jsp</result>
+		</action>
+		<action name="emr_*" class="emrAction" method="{1}">
+			<result name="custEmrs">/archive/custEmrs.jsp</result>
+			<result name="view">/archive/emrView.jsp</result>
+			<result name="edit">/archive/emrEdit.jsp</result>
+		</action>
+	</package>
+</struts>

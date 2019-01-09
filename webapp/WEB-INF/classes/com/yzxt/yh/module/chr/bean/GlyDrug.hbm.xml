@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chr.bean.GlyDrug" table="chr_gly_drug"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="hbpDrugsName" type="java.lang.String">
+			<column name="hbp_drugs_name" length="100">
+				<comment>药品名称</comment>
+			</column>
+		</property>
+		<property name="hbpDrugsFy" type="java.lang.Integer">
+			<column name="hbp_drugs_fy">
+				<comment>频次(每日/次)</comment>
+			</column>
+		</property>
+		<property name="hbpDrugsCount" type="java.lang.Integer">
+			<column name="hbp_drugs_count">
+				<comment>用量(每次/mg)</comment>
+			</column>
+		</property>
+		<property name="type" type="java.lang.Integer">
+			<column name="type_">
+				<comment>1普通药2胰岛素</comment>
+			</column>
+		</property>
+		<property name="BId" type="java.lang.String">
+			<column name="b_id" length="36">
+				<comment>血压表中记录唯一id</comment>
+			</column>
+		</property>
+		<property name="glyInsulinType" type="java.lang.String">
+			<column name="gly_insulin_type" length="50">
+				<comment>胰岛素种类</comment>
+			</column>
+		</property>
+		<property name="glyInsulinUseMethod" type="java.lang.String">
+			<column name="gly_insulin_use_method" length="20">
+				<comment>胰岛素用法</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

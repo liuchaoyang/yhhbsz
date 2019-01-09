@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.Exam" table="chk_exam"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户编号</comment>
+			</column>
+		</property>
+		<property name="examNo" type="java.lang.String">
+			<column name="exam_no" length="12" not-null="true">
+				<comment>提交编号</comment>
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50" not-null="true" />
+		</property>
+		<property name="examDate" type="java.util.Date">
+			<column name="exam_date" length="10">
+				<comment>体检日期</comment>
+			</column>
+		</property>
+		<property name="industryName" type="java.lang.String">
+			<column name="industry_name" length="50" />
+		</property>
+		<property name="symptom" type="java.lang.String">
+			<column name="symptom" length="10">
+				<comment>症状(多选)</comment>
+			</column>
+		</property>
+		<property name="otherSymptom" type="java.lang.String">
+			<column name="other_symptom" length="50">
+				<comment>其他具体症状</comment>
+			</column>
+		</property>
+		<property name="temperature" type="java.lang.Double">
+			<column name="temperature" precision="3" scale="1">
+				<comment>体温</comment>
+			</column>
+		</property>
+		<property name="pulseRate" type="java.lang.Integer">
+			<column name="pulse_rate">
+				<comment>脉率</comment>
+			</column>
+		</property>
+		<property name="breatheRate" type="java.lang.Integer">
+			<column name="breathe_rate">
+				<comment>呼吸频率</comment>
+			</column>
+		</property>
+		<property name="LBloodPressure" type="java.lang.Integer">
+			<column name="l_blood_pressure">
+				<comment>左侧收缩压血压</comment>
+			</column>
+		</property>
+		<property name="RBloodPressure" type="java.lang.Integer">
+			<column name="r_blood_pressure">
+				<comment>右侧收缩压血压</comment>
+			</column>
+		</property>
+
+
+		<property name="LBloodPressureBpd" type="java.lang.Integer">
+			<column name="l_blood_pressure_bpd">
+				<comment>左侧舒张压血压</comment>
+			</column>
+		</property>
+		<property name="RBloodPressureBpd" type="java.lang.Integer">
+			<column name="r_blood_pressure_bpd">
+				<comment>右侧舒张压血压</comment>
+			</column>
+		</property>
+
+
+		<property name="height" type="java.lang.Integer">
+			<column name="height">
+				<comment>身高CM</comment>
+			</column>
+		</property>
+		<property name="weight" type="java.lang.Double">
+			<column name="weight" precision="4" scale="1">
+				<comment>体重</comment>
+			</column>
+		</property>
+		<property name="waistline" type="java.lang.Integer">
+			<column name="waistline">
+				<comment>腰围CM</comment>
+			</column>
+		</property>
+		<property name="bmi" type="java.lang.Double">
+			<column name="BMI" precision="4" scale="1">
+				<comment>体质指数（千克每平方米）</comment>
+			</column>
+		</property>
+		<property name="agedHealthAssess" type="java.lang.Integer">
+			<column name="aged_health_assess">
+				<comment>老年人健康状态自我评估</comment>
+			</column>
+		</property>
+		<property name="agedLifeAssess" type="java.lang.Integer">
+			<column name="aged_life_assess">
+				<comment>老年人生活自理能力自我评估</comment>
+			</column>
+		</property>
+		<property name="agedKonwledgeFunc" type="java.lang.Integer">
+			<column name="aged_konwledge_func">
+				<comment>老年人认知功能</comment>
+			</column>
+		</property>
+		<property name="agedKfScore" type="java.lang.Integer">
+			<column name="aged_kf_score">
+				<comment>老年人认知功能得分</comment>
+			</column>
+		</property>
+		<property name="agedFeelingStatus" type="java.lang.Integer">
+			<column name="aged_feeling_status">
+				<comment>老年人情感状态</comment>
+			</column>
+		</property>
+		<property name="agedFsScore" type="java.lang.Integer">
+			<column name="aged_fs_score">
+				<comment>老年人情感状态得分</comment>
+			</column>
+		</property>
+		<property name="exerciseRate" type="java.lang.Integer">
+			<column name="exercise_rate">
+				<comment>锻炼频率</comment>
+			</column>
+		</property>
+		<property name="everyExerTime" type="java.lang.Integer">
+			<column name="every_exer_time">
+				<comment>每次锻炼时长(分钟)</comment>
+			</column>
+		</property>
+		<property name="insistExerYear" type="java.lang.Double">
+			<column name="insist_exer_year" precision="4" scale="1">
+				<comment>检查锻炼时间(年)</comment>
+			</column>
+		</property>
+		<property name="exerType" type="java.lang.String">
+			<column name="exer_type" length="50">
+				<comment>锻炼方式</comment>
+			</column>
+		</property>
+		<property name="dietStatus" type="java.lang.String">
+			<column name="diet_status" length="20">
+				<comment>饮食状况(多选)</comment>
+			</column>
+		</property>
+		<property name="smokeStatus" type="java.lang.Integer">
+			<column name="smoke_status">
+				<comment>吸烟状况</comment>
+			</column>
+		</property>
+		<property name="dailySmoke" type="java.lang.Integer">
+			<column name="daily_smoke">
+				<comment>日吸烟量</comment>
+			</column>
+		</property>
+		<property name="startSmokeAge" type="java.lang.Integer">
+			<column name="start_smoke_age">
+				<comment>开始吸烟年龄</comment>
+			</column>
+		</property>
+		<property name="notSmokeAge" type="java.lang.Integer">
+			<column name="not_smoke_age">
+				<comment>戒烟年龄</comment>
+			</column>
+		</property>
+		<property name="drinkWineRate" type="java.lang.Integer">
+			<column name="drink_wine_rate">
+				<comment>饮酒频率</comment>
+			</column>
+		</property>
+		<property name="dailyDrink" type="java.lang.Integer">
+			<column name="daily_drink">
+				<comment>日饮酒量(两)</comment>
+			</column>
+		</property>
+		<property name="isNotDrink" type="java.lang.Integer">
+			<column name="is_not_drink">
+				<comment>是否戒酒</comment>
+			</column>
+		</property>
+		<property name="notDrinkAge" type="java.lang.Integer">
+			<column name="not_drink_age">
+				<comment>戒酒年龄</comment>
+			</column>
+		</property>
+		<property name="startDrinkAge" type="java.lang.Integer">
+			<column name="start_drink_age">
+				<comment>开始饮酒年龄</comment>
+			</column>
+		</property>
+		<property name="recentYearDrink" type="java.lang.Integer">
+			<column name="recent_year_drink">
+				<comment>最近一年是否饮酒</comment>
+			</column>
+		</property>
+		<property name="drinkType" type="java.lang.String">
+			<column name="drink_type">
+				<comment>饮酒类型</comment>
+			</column>
+		</property>
+		<property name="otherDrinkType" type="java.lang.String">
+			<column name="other_drink_type" length="20">
+				<comment>其他酒类名称</comment>
+			</column>
+		</property>
+		<property name="workType" type="java.lang.String">
+			<column name="work_type" length="20">
+				<comment>工种</comment>
+			</column>
+		</property>
+		<property name="workTime" type="java.lang.Double">
+			<column name="work_time" precision="3" scale="1">
+				<comment>从业时间（年）</comment>
+			</column>
+		</property>
+		<property name="lips" type="java.lang.Integer">
+			<column name="lips">
+				<comment>口唇</comment>
+			</column>
+		</property>
+		<property name="tooth" type="java.lang.Integer">
+			<column name="tooth">
+				<comment>齿列</comment>
+			</column>
+		</property>
+		<property name="throad" type="java.lang.Integer">
+			<column name="throad">
+				<comment>咽部</comment>
+			</column>
+		</property>
+		<property name="LEyesight" type="java.lang.Double">
+			<column name="l_eyesight" precision="2" scale="1">
+				<comment>左眼视力</comment>
+			</column>
+		</property>
+		<property name="REyesight" type="java.lang.Double">
+			<column name="r_eyesight" precision="2" scale="1">
+				<comment>右眼视力</comment>
+			</column>
+		</property>
+		<property name="reLEyesight" type="java.lang.Double">
+			<column name="re_l_eyesight" precision="2" scale="1">
+				<comment>纠正左眼视力</comment>
+			</column>
+		</property>
+		<property name="reREyesight" type="java.lang.Double">
+			<column name="re_r_eyesight" precision="2" scale="1">
+				<comment>右眼纠正视力</comment>
+			</column>
+		</property>
+		<property name="hearing" type="java.lang.Integer">
+			<column name="hearing">
+				<comment>听力</comment>
+			</column>
+		</property>
+		<property name="sportsFunc" type="java.lang.Integer">
+			<column name="sports_func">
+				<comment>运动功能</comment>
+			</column>
+		</property>
+		<property name="eyeGround" type="java.lang.String">
+			<column name="eye_ground">
+				<comment>眼底</comment>
+			</column>
+		</property>
+		<property name="skin" type="java.lang.Integer">
+			<column name="skin">
+				<comment>皮肤</comment>
+			</column>
+		</property>
+		<property name="otherSkin" type="java.lang.String">
+			<column name="other_skin" length="50">
+				<comment>其他皮肤</comment>
+			</column>
+		</property>
+		<property name="sclera" type="java.lang.Integer">
+			<column name="sclera">
+				<comment>巩膜</comment>
+			</column>
+		</property>
+		<property name="otherSclera" type="java.lang.String">
+			<column name="other_sclera" length="50">
+				<comment>其他巩膜情况</comment>
+			</column>
+		</property>
+		<property name="lymphaden" type="java.lang.Integer">
+			<column name="lymphaden">
+				<comment>淋巴结</comment>
+			</column>
+		</property>
+		<property name="otherLymphaden" type="java.lang.String">
+			<column name="other_lymphaden" length="4">
+				<comment>其他淋巴结</comment>
+			</column>
+		</property>
+		<property name="lungsChest" type="java.lang.Integer">
+			<column name="lungs_chest">
+				<comment>桶状胸</comment>
+			</column>
+		</property>
+		<property name="lungsBreVoice" type="java.lang.String">
+			<column name="lungs_bre_voice" length="50">
+				<comment>呼吸音 正常为空,异常为具体异常</comment>
+			</column>
+		</property>
+		<property name="lungsRale" type="java.lang.Integer">
+			<column name="lungs_rale">
+				<comment>罗音</comment>
+			</column>
+		</property>
+		<property name="otherLungsRale" type="java.lang.String">
+			<column name="other_lungs_rale" length="50">
+				<comment>其他罗音</comment>
+			</column>
+		</property>
+		<property name="heartRate" type="java.lang.Integer">
+			<column name="heart_rate">
+				<comment>心率</comment>
+			</column>
+		</property>
+		<property name="heartRhythm" type="java.lang.Integer">
+			<column name="heart_rhythm">
+				<comment>心率</comment>
+			</column>
+		</property>
+		<property name="heartNoise" type="java.lang.String">
+			<column name="heart_noise" length="50">
+				<comment>心脏杂音(正常为空,异常为具体数据)</comment>
+			</column>
+		</property>
+		<property name="abdPrePain" type="java.lang.String">
+			<column name="abd_pre_pain" length="50">
+				<comment>腹部压痛(正常为空,异常为具体数据)</comment>
+			</column>
+		</property>
+		<property name="abdBagPiece" type="java.lang.String">
+			<column name="abd_bag_piece" length="50">
+				<comment>腹部包块(正常为空,异常为具体数据)</comment>
+			</column>
+		</property>
+		<property name="abdHepatomegaly" type="java.lang.String">
+			<column name="abd_hepatomegaly" length="50">
+				<comment>腹部肝大(正常为空,异常为具体数据)</comment>
+			</column>
+		</property>
+		<property name="abdSplenomegaly" type="java.lang.String">
+			<column name="abd_splenomegaly" length="50">
+				<comment>腹部脾大(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="abdMovNoise" type="java.lang.String">
+			<column name="abd_mov_noise" length="50">
+				<comment>移动性浊音(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="limbsEdema" type="java.lang.Integer">
+			<column name="limbs_edema">
+				<comment>下肢水肿</comment>
+			</column>
+		</property>
+		<property name="footBackArtery" type="java.lang.Integer">
+			<column name="foot_back_artery">
+				<comment>足背动脉搏动</comment>
+			</column>
+		</property>
+		<property name="anusDre" type="java.lang.Integer">
+			<column name="anus_dre">
+				<comment>肛门指诊</comment>
+			</column>
+		</property>
+		<property name="otherAnusDre" type="java.lang.String">
+			<column name="other_anus_dre" length="50">
+				<comment>其他肛门指诊</comment>
+			</column>
+		</property>
+		<property name="mammaryGland" type="java.lang.String">
+			<column name="mammary_gland" length="20">
+				<comment>乳腺</comment>
+			</column>
+		</property>
+		<property name="otherMammaryGland" type="java.lang.String">
+			<column name="other_mammary_gland" length="50">
+				<comment>其他乳腺信息</comment>
+			</column>
+		</property>
+		<property name="vulva" type="java.lang.String">
+			<column name="vulva" length="50">
+				<comment>外阴(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="vagina" type="java.lang.String">
+			<column name="vagina" length="50">
+				<comment>阴道(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="cervical" type="java.lang.String">
+			<column name="cervical" length="50">
+				<comment>宫颈(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="corpus" type="java.lang.String">
+			<column name="corpus" length="50">
+				<comment>宫体(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="attachment" type="java.lang.String">
+			<column name="attachment" length="50">
+				<comment>附件(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="otherBodyExam" type="java.lang.String">
+			<column name="other_body_exam" length="100">
+				<comment>其他妇科查体情况</comment>
+			</column>
+		</property>
+		<property name="hemoglobin" type="java.lang.Double">
+			<column name="hemoglobin">
+				<comment>血红蛋白g/L</comment>
+			</column>
+		</property>
+		<property name="whiteBloodCells" type="java.lang.Double">
+			<column name="white_blood_cells">
+				<comment>白细胞g/l</comment>
+			</column>
+		</property>
+		<property name="platelet" type="java.lang.Double">
+			<column name="platelet">
+				<comment>血小板g/L</comment>
+			</column>
+		</property>
+		<property name="otherBlood" type="java.lang.String">
+			<column name="other_blood" length="100">
+				<comment>其他血常规</comment>
+			</column>
+		</property>
+		<property name="urineProteim" type="java.lang.String">
+			<column name="urine_proteim" precision="8">
+				<comment>尿蛋白</comment>
+			</column>
+		</property>
+		<property name="urineSuger" type="java.lang.String">
+			<column name="urine_suger" precision="8">
+				<comment>尿糖</comment>
+			</column>
+		</property>
+		<property name="urineKetone" type="java.lang.String">
+			<column name="urine_ketone" precision="8">
+				<comment>尿酮体</comment>
+			</column>
+		</property>
+		<property name="urineEry" type="java.lang.String">
+			<column name="urine_ery" precision="8">
+				<comment>尿潜</comment>
+			</column>
+		</property>
+		<property name="otherUrine" type="java.lang.String">
+			<column name="other_urine" length="50">
+				<comment>其他尿检查</comment>
+			</column>
+		</property>
+		<property name="fastingGlucose" type="java.lang.Double">
+			<column name="fasting_glucose" precision="5" scale="1">
+				<comment>空腹血糖</comment>
+			</column>
+		</property>
+		<property name="fgUnits" type="java.lang.String">
+			<column name="fg_units" length="10">
+				<comment>单位mg/dL或者mmol/L</comment>
+			</column>
+		</property>
+		<property name="electrocardiogram" type="java.lang.String">
+			<column name="electrocardiogram" length="100">
+				<comment>心电图(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="urineTraceAlbumin" type="java.lang.Double">
+			<column name="urine_trace_albumin">
+				<comment>尿微量白蛋白mg/dL</comment>
+			</column>
+		</property>
+		<property name="defecateOccultBlood" type="java.lang.Integer">
+			<column name="defecate_occult_blood">
+				<comment>大便潜血</comment>
+			</column>
+		</property>
+		<property name="glycatedHemoglobin" type="java.lang.Double">
+			<column name="glycated_hemoglobin" precision="5">
+				<comment>糖化血红蛋白</comment>
+			</column>
+		</property>
+		<property name="heapSurAntigen" type="java.lang.Integer">
+			<column name="heap_sur_antigen">
+				<comment>乙型肝炎表面抗原</comment>
+			</column>
+		</property>
+		<property name="serumAlt" type="java.lang.Double">
+			<column name="serum_alt" precision="8">
+				<comment>血清谷丙转氨酶U/L</comment>
+			</column>
+		</property>
+		<property name="serumAspertateAtf" type="java.lang.Double">
+			<column name="serum_aspertate_atf" precision="8">
+				<comment>血清谷草转氨酶U/L</comment>
+			</column>
+		</property>
+		<property name="albumin" type="java.lang.Double">
+			<column name="albumin" precision="8">
+				<comment>白蛋白g/L</comment>
+			</column>
+		</property>
+		<property name="totalBilirubin" type="java.lang.Double">
+			<column name="total_bilirubin" precision="8">
+				<comment>总胆红素_______μmol/L</comment>
+			</column>
+		</property>
+		<property name="combiningBilirubin" type="java.lang.Double">
+			<column name="combining_bilirubin" precision="8">
+				<comment>结合胆红素μmol/L</comment>
+			</column>
+		</property>
+		<property name="serumCreatinine" type="java.lang.Double">
+			<column name="serum_creatinine" precision="8">
+				<comment>血清肌酐μmol/L</comment>
+			</column>
+		</property>
+		<property name="bloodUreaNitrogen" type="java.lang.Double">
+			<column name="blood_urea_nitrogen" precision="8">
+				<comment>血尿素氮mmol/L</comment>
+			</column>
+		</property>
+		<property name="potassiumConcentration" type="java.lang.Double">
+			<column name="potassium_concentration" precision="8">
+				<comment>血钾浓度mmol/L</comment>
+			</column>
+		</property>
+		<property name="sodiumConcentration" type="java.lang.Double">
+			<column name="sodium_concentration" precision="8">
+				<comment>血钠浓度mmol/L</comment>
+			</column>
+		</property>
+		<property name="totalCholesterol" type="java.lang.Double">
+			<column name="total_cholesterol" precision="8">
+				<comment>总胆固醇mmol/L</comment>
+			</column>
+		</property>
+		<property name="triglycerides" type="java.lang.Double">
+			<column name="triglycerides" precision="8">
+				<comment>甘油三酯mmol/L</comment>
+			</column>
+		</property>
+		<property name="sldlc" type="java.lang.Double">
+			<column name="sldlc" precision="8">
+				<comment>血清低密度脂蛋白胆固醇mmol/L</comment>
+			</column>
+		</property>
+		<property name="shdlc" type="java.lang.Double">
+			<column name="shdlc" precision="8">
+				<comment>血清高密度脂蛋白胆固醇mmol/L</comment>
+			</column>
+		</property>
+		<property name="chestXRay" type="java.lang.String">
+			<column name="chest_x_ray" length="100">
+				<comment>胸部X线片(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="BUltrasound" type="java.lang.String">
+			<column name="b_ultrasound" length="100">
+				<comment>B超(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="cervicalSmears" type="java.lang.String">
+			<column name="cervical_smears" length="100">
+				<comment>宫颈图片(正常为空，异常为具体的异常数据)</comment>
+			</column>
+		</property>
+		<property name="otherAssistExam" type="java.lang.String">
+			<column name="other_assist_exam" length="100">
+				<comment>其他辅助检查</comment>
+			</column>
+		</property>
+		<property name="mildPhysique" type="java.lang.Integer">
+			<column name="mild_physique">
+				<comment>平和质</comment>
+			</column>
+		</property>
+		<property name="faintPhysical" type="java.lang.Integer">
+			<column name="faint_physical">
+				<comment>气虚质</comment>
+			</column>
+		</property>
+		<property name="maleQuality" type="java.lang.Integer">
+			<column name="male_quality">
+				<comment>阳虚质</comment>
+			</column>
+		</property>
+		<property name="lunarQuality" type="java.lang.Integer">
+			<column name="lunar_quality">
+				<comment>阴虚质</comment>
+			</column>
+		</property>
+		<property name="phlegmDamp" type="java.lang.Integer">
+			<column name="phlegm_damp">
+				<comment>痰湿质</comment>
+			</column>
+		</property>
+		<property name="dampnessHeat" type="java.lang.Integer">
+			<column name="dampness_heat">
+				<comment>湿热质</comment>
+			</column>
+		</property>
+		<property name="bloodQuality" type="java.lang.Integer">
+			<column name="blood_quality">
+				<comment>血瘀质</comment>
+			</column>
+		</property>
+		<property name="logisticQuality" type="java.lang.Integer">
+			<column name="logistic_quality">
+				<comment>气郁质</comment>
+			</column>
+		</property>
+		<property name="graspQuality" type="java.lang.Integer">
+			<column name="grasp_quality">
+				<comment>特秉质</comment>
+			</column>
+		</property>
+		<property name="cerebraveDisease" type="java.lang.String">
+			<column name="cerebrave_disease" length="20">
+				<comment>脑血管疾病(多选)</comment>
+			</column>
+		</property>
+		<property name="otherCereDisease" type="java.lang.String">
+			<column name="other_cere_disease" length="50">
+				<comment>其他脑血管疾病</comment>
+			</column>
+		</property>
+		<property name="renalDisease" type="java.lang.String">
+			<column name="renal_disease" length="20">
+				<comment>肾脏疾病</comment>
+			</column>
+		</property>
+		<property name="otherRenalDisease" type="java.lang.String">
+			<column name="other_renal_disease" length="50">
+				<comment>其他肾脏疾病</comment>
+			</column>
+		</property>
+		<property name="heartDisease" type="java.lang.String">
+			<column name="heart_disease" length="20">
+				<comment>心脏疾病</comment>
+			</column>
+		</property>
+		<property name="otherHeartDisease" type="java.lang.String">
+			<column name="other_heart_disease" length="50">
+				<comment>其他心脏疾病</comment>
+			</column>
+		</property>
+		<property name="vascularDisease" type="java.lang.String">
+			<column name="vascular_disease" length="20">
+				<comment>血管疾病(多选)</comment>
+			</column>
+		</property>
+		<property name="otherVascularDisease" type="java.lang.String">
+			<column name="other_vascular_disease" length="50">
+				<comment>其他血管疾病</comment>
+			</column>
+		</property>
+		<property name="eyeDisease" type="java.lang.String">
+			<column name="eye_disease" length="20">
+				<comment>眼部疾病</comment>
+			</column>
+		</property>
+		<property name="otherEyeDisease" type="java.lang.String">
+			<column name="other_eye_disease" length="50">
+				<comment>其他眼部疾病</comment>
+			</column>
+		</property>
+		<property name="ond" type="java.lang.String">
+			<column name="OND" length="50">
+				<comment>神经系统疾病(正常为空,有为具体的病名称)</comment>
+			</column>
+		</property>
+		<property name="otherSysDisease" type="java.lang.String">
+			<column name="other_sys_disease" length="50">
+				<comment>其他系统疾病(正常为空,有为具体的病名称)</comment>
+			</column>
+		</property>
+		<property name="healthyLevel" type="java.lang.Integer">
+			<column name="healthy_level">
+				<comment>健康等级,1:不健康，2：亚健康，3：正常，4：良好</comment>
+			</column>
+		</property>
+		<property name="healthyAssess" type="java.lang.String">
+			<column name="healthy_assess">
+				<comment>健康评估(正常无,不正为具体数据)</comment>
+			</column>
+		</property>
+		<property name="healthyDirect" type="java.lang.String">
+			<column name="healthy_direct">
+				<comment>健康指导</comment>
+			</column>
+		</property>
+		<property name="dangerControl" type="java.lang.String">
+			<column name="danger_control" length="20">
+				<comment>危险因素控制：（多选）</comment>
+			</column>
+		</property>
+		<property name="dangerControlWeight" type="java.lang.Double">
+			<column name="danger_control_weight" precision="4" scale="1">
+				<comment>危险控目标体重(kg)</comment>
+			</column>
+		</property>
+		<property name="dangerControlVaccin" type="java.lang.String">
+			<column name="danger_control_vaccin" length="50">
+				<comment>建议接诊疫苗</comment>
+			</column>
+		</property>
+		<property name="dangerControlOther" type="java.lang.String">
+			<column name="danger_control_other" length="100">
+				<comment>危险控制其他</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

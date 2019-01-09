@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chr.bean.Pressure" table="chr_pressure"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36">
+				<comment>用户id (外键)</comment>
+			</column>
+		</property>
+		<property name="visitId" type="java.lang.String">
+			<column name="visit_id" length="36">
+				<comment>随访任务号</comment>
+			</column>
+		</property>
+		<property name="flupDate" type="java.util.Date">
+			<column name="flup_date" length="10">
+				<comment>随访日期</comment>
+			</column>
+		</property>
+		<property name="flupType" type="java.lang.Integer">
+			<column name="flup_type">
+				<comment>随访方式:门诊家庭(上门服务)电话</comment>
+			</column>
+		</property>
+		<property name="flupRsult" type="java.lang.Integer">
+			<column name="flup_rsult">
+				<comment>随访分类:1控制满意2控制不满意3不良反应4并发症</comment>
+			</column>
+		</property>
+		<property name="doctorId" type="java.lang.String">
+			<column name="doctor_id" length="36">
+				<comment>随访医生</comment>
+			</column>
+		</property>
+		<property name="nextFlupTime" type="java.sql.Timestamp">
+			<column name="next_flup_time" length="19">
+				<comment>下次随访时间</comment>
+			</column>
+		</property>
+		<property name="hbpSymptom" type="java.lang.String">
+			<column name="hbp_symptom" length="30">
+				<comment>症状: 1无症状2头痛头晕 3恶心呕吐 4眼花耳鸣 5呼吸困难 6心悸胸闷 7鼻衄出血不止8四肢发麻 9下肢水肿10
+					其他字符间以分号隔开（多选）</comment>
+			</column>
+		</property>
+		<property name="hbpSymptomOther" type="java.lang.String">
+			<column name="hbp_symptom_other" length="100">
+				<comment>症状为其它时的值</comment>
+			</column>
+		</property>
+		<property name="hbpBps" type="java.lang.Integer">
+			<column name="hbp_bps">
+				<comment>收缩压(mmHg)</comment>
+			</column>
+		</property>
+		<property name="hbpBpd" type="java.lang.Integer">
+			<column name="hbp_bpd">
+				<comment>舒张压(mmHg)</comment>
+			</column>
+		</property>
+		<property name="hbpWeight" type="java.lang.Double">
+			<column name="hbp_weight" precision="4" scale="1">
+				<comment>体重(kg)</comment>
+			</column>
+		</property>
+		<property name="hbpPhysique" type="java.lang.Double">
+			<column name="hbp_physique" precision="4" scale="1">
+				<comment>体质指数</comment>
+			</column>
+		</property>
+		<property name="hbpPulse" type="java.lang.Integer">
+			<column name="hbp_pulse">
+				<comment>心率(次)</comment>
+			</column>
+		</property>
+		<property name="hbpOther" type="java.lang.String">
+			<column name="hbp_other" length="100">
+				<comment>体征其他</comment>
+			</column>
+		</property>
+		<property name="hbpSmoking" type="java.lang.Integer">
+			<column name="hbp_smoking">
+				<comment>日吸烟量</comment>
+			</column>
+		</property>
+		<property name="hbpDrinking" type="java.lang.Double">
+			<column name="hbp_drinking" precision="4" scale="1">
+				<comment>日饮酒量</comment>
+			</column>
+		</property>
+		<property name="hbpSalarium" type="java.lang.Integer">
+			<column name="hbp_salarium">
+				<comment>摄盐情况1：轻2：中3：重</comment>
+			</column>
+		</property>
+		<property name="hbpPsycrecovery" type="java.lang.Integer">
+			<column name="hbp_psycrecovery">
+				<comment>心理调整1良好 2一般 3差</comment>
+			</column>
+		</property>
+		<property name="hbpCompliance" type="java.lang.Integer">
+			<column name="hbp_compliance">
+				<comment>遵医行为1良好2一般3差</comment>
+			</column>
+		</property>
+		<property name="hbpHelpCheck" type="java.lang.String">
+			<column name="hbp_help_check" length="300">
+				<comment>辅助检查</comment>
+			</column>
+		</property>
+		<property name="hbpDurgsObey" type="java.lang.Integer">
+			<column name="hbp_durgs_obey">
+				<comment>药物依从性1规律2间断3不服药</comment>
+			</column>
+		</property>
+		<property name="hbpDrugsUntoward" type="java.lang.String">
+			<column name="hbp_drugs_untoward" length="100">
+				<comment>药物不良反应没有为空值，有就是具体反应</comment>
+			</column>
+		</property>
+		<property name="hbpReferWhy" type="java.lang.String">
+			<column name="hbp_referWhy" length="300">
+				<comment>转诊原因</comment>
+			</column>
+		</property>
+		<property name="hbpReferOrg" type="java.lang.String">
+			<column name="hbp_refer_org" length="300">
+				<comment>转诊机构</comment>
+			</column>
+		</property>
+		<property name="hbpReferObj" type="java.lang.String">
+			<column name="hbp_refer_obj" length="100">
+				<comment>科别</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status">
+				<comment>1-存在0-删除</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

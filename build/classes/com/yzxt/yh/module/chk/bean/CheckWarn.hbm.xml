@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.CheckWarn" table="chk_check_warn"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="type_" length="10" not-null="true">
+				<comment>告警检测数据类型，血压：xy</comment>
+			</column>
+		</property>
+		<property name="level" type="java.lang.Integer">
+			<column name="level" not-null="true">
+				<comment>告警等级，0：未识别，小于0：正常，大于0：异常</comment>
+			</column>
+		</property>
+		<property name="descript" type="java.lang.String">
+			<column name="descript">
+				<comment>预警描述</comment>
+			</column>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="warnTime" type="java.sql.Timestamp">
+			<column name="warn_time" length="19" not-null="true">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

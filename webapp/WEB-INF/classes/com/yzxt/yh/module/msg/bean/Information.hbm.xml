@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.msg.bean.Information" table="msg_information"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="title" type="java.lang.String">
+			<column name="title" length="50" not-null="true">
+				<comment>资讯标题</comment>
+			</column>
+		</property>
+		<property name="src" type="java.lang.String">
+			<column name="src" length="50">
+				<comment>资讯来源</comment>
+			</column>
+		</property>
+		<property name="richtextId" type="java.lang.String">
+			<column name="richtext_id" length="36" not-null="true">
+				<comment>在富文本信息表中的ID</comment>
+			</column>
+		</property>
+		<property name="level" type="java.lang.Integer">
+			<column name="level" not-null="true">
+				<comment>是否置顶，1：置顶，2普通资讯</comment>
+			</column>
+		</property>
+		<property name="iconFileId" type="java.lang.String">
+			<column name="icon_file_id" length="36">
+				<comment>资讯图标文件ID</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true" />
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

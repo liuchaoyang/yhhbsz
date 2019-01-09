@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 咨询 -->
+	<bean id="consultGuideDao" class="com.yzxt.yh.module.msg.dao.ConsultGuideDao"
+		parent="hibernateUtil" />
+	<bean id="consultGuideService" class="com.yzxt.yh.module.msg.service.ConsultGuideService">
+		<property name="consultGuideDao" ref="consultGuideDao" />
+	</bean>
+	<bean id="consultGuideAction" class="com.yzxt.yh.module.msg.action.ConsultGuideAction"
+		scope="prototype">
+		<property name="consultGuideService" ref="consultGuideService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<!-- 健康指导 -->
+	<bean id="healthyGuideDao" class="com.yzxt.yh.module.msg.dao.HealthyGuideDao"
+		parent="hibernateUtil" />
+	<bean id="healthyGuideService" class="com.yzxt.yh.module.msg.service.HealthyGuideService">
+		<property name="healthyGuideDao" ref="healthyGuideDao" />
+	</bean>
+	<bean id="healthyGuideAction" class="com.yzxt.yh.module.msg.action.HealthyGuideAction"
+		scope="prototype">
+		<property name="healthyGuideService" ref="healthyGuideService" />
+		<property name="customerService" ref="customerService" />
+		<property name="pressurePulseService" ref="pressurePulseService" />
+		<property name="familyService" ref="familyService" />
+	</bean>
+	<!-- 健康资讯 -->
+	<bean id="fileDescDao" class="com.yzxt.yh.module.sys.dao.FileDescDao"
+		parent="hibernateUtil" />
+	<bean id="richtextDao" class="com.yzxt.yh.module.msg.dao.RichtextDao"
+		parent="hibernateUtil" />
+	<bean id="informationDao" class="com.yzxt.yh.module.msg.dao.InformationDao"
+		parent="hibernateUtil" />
+	<bean id="infoCatalogDao" class="com.yzxt.yh.module.msg.dao.InfoCatalogDao"
+		parent="hibernateUtil" />
+	<bean id="infoCatalogRelateDao" class="com.yzxt.yh.module.msg.dao.InfoCatalogRelateDao"
+		parent="hibernateUtil" />
+	<!-- 健康知识 -->
+	<bean id="knowledgeCatalogDao" class="com.yzxt.yh.module.msg.dao.KnowledgeCatalogDao"
+		parent="hibernateUtil" />
+	<bean id="knowledgeDao" class="com.yzxt.yh.module.msg.dao.KnowledgeDao"
+		parent="hibernateUtil" />
+	<!-- 健康问答 -->
+	<bean id="askDao" class="com.yzxt.yh.module.msg.dao.AskDao"
+		parent="hibernateUtil" />
+	<bean id="askReplyDao" class="com.yzxt.yh.module.msg.dao.AskReplyDao"
+		parent="hibernateUtil" />
+	<bean id="askCatalogDao" class="com.yzxt.yh.module.msg.dao.AskCatalogDao"
+		parent="hibernateUtil" />
+
+	<!-- 健康资讯 -->
+	<bean id="fileDescService" class="com.yzxt.yh.module.sys.service.FileDescService">
+		<property name="fileDescDao" ref="fileDescDao" />
+	</bean>
+	<bean id="richtextService" class="com.yzxt.yh.module.msg.service.RichtextService">
+		<property name="richtextDao" ref="richtextDao" />
+	</bean>
+	<bean id="informationService" class="com.yzxt.yh.module.msg.service.InformationService">
+		<property name="informationDao" ref="informationDao" />
+		<property name="infoCatalogRelateDao" ref="infoCatalogRelateDao" />
+		<property name="fileDescService" ref="fileDescService" />
+		<property name="richtextService" ref="richtextService" />
+	</bean>
+
+	<bean id="infoCatalogService" class="com.yzxt.yh.module.msg.service.InfoCatalogService">
+		<property name="infoCatalogDao" ref="infoCatalogDao" />
+	</bean>
+
+	<!-- 健康知识 -->
+	<bean id="knowledgeCatalogService" class="com.yzxt.yh.module.msg.service.KnowledgeCatalogService">
+		<property name="knowledgeCatalogDao" ref="knowledgeCatalogDao" />
+	</bean>
+	<bean id="knowledgeService" class="com.yzxt.yh.module.msg.service.KnowledgeService">
+		<property name="knowledgeDao" ref="knowledgeDao" />
+		<property name="knowledgeCatalogDao" ref="knowledgeCatalogDao" />
+		<property name="richtextService" ref="richtextService" />
+	</bean>
+	<!-- 健康问答 -->
+	<bean id="askService" class="com.yzxt.yh.module.msg.service.AskService">
+		<property name="askDao" ref="askDao" />
+		<property name="askReplyDao" ref="askReplyDao" />
+		<property name="askCatalogDao" ref="askCatalogDao" />
+		<property name="richtextService" ref="richtextService" />
+	</bean>
+
+	<!-- 健康资讯 -->
+	<bean id="informationAction" class="com.yzxt.yh.module.msg.action.InformationAction"
+		scope="prototype">
+		<property name="informationService" ref="informationService" />
+		<property name="infoCatalogService" ref="infoCatalogService" />
+	</bean>
+	<bean id="infoCatalogAction" class="com.yzxt.yh.module.msg.action.InfoCatalogAction"
+		scope="prototype">
+		<property name="infoCatalogService" ref="infoCatalogService" />
+	</bean>
+
+	<!-- 健康知识 -->
+	<bean id="knowledgeCatalogAction" class="com.yzxt.yh.module.msg.action.KnowledgeCatalogAction"
+		scope="prototype">
+		<property name="knowledgeCatalogService" ref="knowledgeCatalogService" />
+	</bean>
+	<bean id="knowledgeAction" class="com.yzxt.yh.module.msg.action.KnowledgeAction"
+		scope="prototype">
+		<property name="knowledgeService" ref="knowledgeService" />
+		<property name="knowledgeCatalogService" ref="knowledgeCatalogService" />
+	</bean>
+	<!-- 健康问答 -->
+	<bean id="askAction" class="com.yzxt.yh.module.msg.action.AskAction"
+		scope="prototype">
+		<property name="askService" ref="askService" />
+		<property name="familyService" ref="familyService" />
+		<property name="doctorService" ref="doctorService" />
+	</bean>
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.UserSession" table="sys_user_session"
+		catalog="">
+		<id name="ticket" type="java.lang.String">
+			<column name="ticket" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="java.lang.String">
+			<column name="user_id" length="36" />
+		</property>
+		<property name="expiryTime" type="java.util.Date">
+			<column name="expiry_time" length="19" />
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="50" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

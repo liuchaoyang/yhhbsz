@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 身体指标 -->
+	<bean id="physiologIndexDao" class="com.yzxt.yh.module.chk.dao.PhysiologIndexDao"
+		parent="hibernateUtil" />
+	<!-- 告警信息 -->
+	<bean id="checkWarnDao" class="com.yzxt.yh.module.chk.dao.CheckWarnDao"
+		parent="hibernateUtil" />
+	<bean id="checkWarnService" class="com.yzxt.yh.module.chk.service.CheckWarnService">
+		<property name="checkWarnDao" ref="checkWarnDao" />
+		<property name="customerDao" ref="customerDao" />
+	</bean>
+	<bean id="checkWarnAction" class="com.yzxt.yh.module.chk.action.CheckWarnAction"
+		scope="prototype">
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="customerService" ref="customerService" />
+	</bean>
+	<!-- 检测记录 -->
+	<bean id="checkDataDao" class="com.yzxt.yh.module.chk.dao.CheckDataDao"
+		parent="hibernateUtil" />
+	<bean id="pressurePulseDao" class="com.yzxt.yh.module.chk.dao.PressurePulseDao"
+		parent="hibernateUtil" />
+	<bean id="bloodSugarDao" class="com.yzxt.yh.module.chk.dao.BloodSugarDao"
+		parent="hibernateUtil" />
+	<bean id="pulseDao" class="com.yzxt.yh.module.chk.dao.PulseDao"
+		parent="hibernateUtil" />
+	<bean id="bloodOxygenDao" class="com.yzxt.yh.module.chk.dao.BloodOxygenDao"
+		parent="hibernateUtil" />
+	<bean id="temperatureDao" class="com.yzxt.yh.module.chk.dao.TemperatureDao"
+		parent="hibernateUtil" />
+	<bean id="totalCholesterolDao" class="com.yzxt.yh.module.chk.dao.TotalCholesterolDao"
+		parent="hibernateUtil" />
+	<bean id="uricAcidDao" class="com.yzxt.yh.module.chk.dao.UricAcidDao"
+		parent="hibernateUtil" />
+	<bean id="analysisUricAcidDao" class="com.yzxt.yh.module.chk.dao.AnalysisUricAcidDao"
+		parent="hibernateUtil" />
+	<bean id="checkDataService" class="com.yzxt.yh.module.chk.service.CheckDataService">
+		<property name="checkDataDao" ref="checkDataDao" />
+	</bean>
+	<bean id="pulseService" class="com.yzxt.yh.module.chk.service.PulseService">
+		<property name="pulseDao" ref="pulseDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="pressurePulseService" class="com.yzxt.yh.module.chk.service.PressurePulseService">
+		<property name="pressurePulseDao" ref="pressurePulseDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="pulseService" ref="pulseService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="bloodSugarService" class="com.yzxt.yh.module.chk.service.BloodSugarService">
+		<property name="bloodSugarDao" ref="bloodSugarDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="bloodOxygenService" class="com.yzxt.yh.module.chk.service.BloodOxygenService">
+		<property name="bloodOxygenDao" ref="bloodOxygenDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="pulseService" ref="pulseService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="temperatureService" class="com.yzxt.yh.module.chk.service.TemperatureService">
+		<property name="temperatureDao" ref="temperatureDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="totalCholesterolService" class="com.yzxt.yh.module.chk.service.TotalCholesterolService">
+		<property name="totalCholesterolDao" ref="totalCholesterolDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="uricAcidService" class="com.yzxt.yh.module.chk.service.UricAcidService">
+		<property name="uricAcidDao" ref="uricAcidDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="analysisUricAcidService" class="com.yzxt.yh.module.chk.service.AnalysisUricAcidService">
+		<property name="analysisUricAcidDao" ref="analysisUricAcidDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="userService" ref="userService" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="checkDataAction" class="com.yzxt.yh.module.chk.action.CheckDataAction"
+		scope="prototype">
+		<property name="checkDataService" ref="checkDataService" />
+		<property name="pulseService" ref="pulseService" />
+		<property name="pressurePulseService" ref="pressurePulseService" />
+		<property name="bloodSugarService" ref="bloodSugarService" />
+		<property name="bloodOxygenService" ref="bloodOxygenService" />
+		<property name="temperatureService" ref="temperatureService" />
+		<property name="totalCholesterolService" ref="totalCholesterolService" />
+		<property name="uricAcidService" ref="uricAcidService" />
+		<property name="analysisUricAcidService" ref="analysisUricAcidService" />
+		<property name="customerService" ref="customerService" />
+		<property name="bodyFatService" ref="bodyFatService" />
+	</bean>
+	<!-- 老人定位 -->
+	<bean id="custPositionDao" class="com.yzxt.yh.module.chk.dao.CustPositionDao"
+		parent="hibernateUtil" />
+	<bean id="custPositionService" class="com.yzxt.yh.module.chk.service.CustPositionService">
+		<property name="custPositionDao" ref="custPositionDao" />
+	</bean>
+	<!-- 检测提醒 -->
+	<bean id="checkRemindDao" class="com.yzxt.yh.module.chk.dao.CheckRemindDao"
+		parent="hibernateUtil" />
+	<bean id="checkRemindService" class="com.yzxt.yh.module.chk.service.CheckRemindService">
+		<property name="checkRemindDao" ref="checkRemindDao" />
+	</bean>
+	<bean id="checkRemindAction" class="com.yzxt.yh.module.chk.action.CheckRemindAction">
+		<property name="checkRemindService" ref="checkRemindService" />
+	</bean>
+	<!-- 设备管理 -->
+	<bean id="userDeviceDao" class="com.yzxt.yh.module.chk.dao.UserDeviceDao"
+		parent="hibernateUtil" />
+	<bean id="userDeviceService" class="com.yzxt.yh.module.chk.service.UserDeviceService">
+		<property name="userDeviceDao" ref="userDeviceDao" />
+		<property name="wbConfigDao" ref="wbConfigDao" />
+	</bean>
+	<bean id="userDeviceAction" class="com.yzxt.yh.module.chk.action.UserDeviceAction"
+		scope="prototype">
+		<property name="userDeviceService" ref="userDeviceService" />
+		<property name="deviceInfoService" ref="deviceInfoService" />
+		<property name="deviceConfigService" ref="deviceConfigService" />
+	</bean>
+	<!-- 个人健康状态 -->
+	<bean id="physiologIndexService" class="com.yzxt.yh.module.chk.service.PhysiologIndexService">
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+	</bean>
+	<bean id="physiologIndexAction" class="com.yzxt.yh.module.chk.action.PhysiologIndexAction"
+		scope="prototype">
+		<property name="physiologIndexService" ref="physiologIndexService" />
+		<property name="analysisUricAcidService" ref="analysisUricAcidService" />
+		<property name="customerService" ref="customerService" />
+	</bean>
+	<!-- 体检 -->
+	<bean id="examDao" class="com.yzxt.yh.module.chk.dao.ExamDao"
+		parent="hibernateUtil" />
+	<bean id="examFamilyHosHisDao" class="com.yzxt.yh.module.chk.dao.ExamFamilyHosHisDao"
+		parent="hibernateUtil" />
+	<bean id="examHospitalHisDao" class="com.yzxt.yh.module.chk.dao.ExamHospitalHisDao"
+		parent="hibernateUtil" />
+	<bean id="examInoculateDao" class="com.yzxt.yh.module.chk.dao.ExamInoculateDao"
+		parent="hibernateUtil" />
+	<bean id="examMedicDao" class="com.yzxt.yh.module.chk.dao.ExamMedicDao"
+		parent="hibernateUtil" />
+	<bean id="examPosionDao" class="com.yzxt.yh.module.chk.dao.ExamPosionDao"
+		parent="hibernateUtil" />
+	<bean id="examService" class="com.yzxt.yh.module.chk.service.ExamService">
+		<property name="examDao" ref="examDao" />
+		<property name="examFamilyHosHisDao" ref="examFamilyHosHisDao" />
+		<property name="examHospitalHisDao" ref="examHospitalHisDao" />
+		<property name="examInoculateDao" ref="examInoculateDao" />
+		<property name="examMedicDao" ref="examMedicDao" />
+		<property name="examPosionDao" ref="examPosionDao" />
+	</bean>
+	<bean id="examAction" class="com.yzxt.yh.module.chk.action.ExamAction"
+		scope="prototype">
+		<property name="examService" ref="examService" />
+		<property name="physiologIndexService" ref="physiologIndexService" />
+		<property name="customerService" ref="customerService" />
+	</bean>
+	<!-- 设备基础数据 -->
+	<bean id="deviceInfoDao" class="com.yzxt.yh.module.chk.dao.DeviceInfoDao"
+		parent="hibernateUtil" />
+	<bean id="deviceInfoService" class="com.yzxt.yh.module.chk.service.DeviceInfoService">
+		<property name="deviceInfoDao" ref="deviceInfoDao" />
+	</bean>
+	<bean id="deviceInfoAction" class="com.yzxt.yh.module.chk.action.DeviceInfoAction"
+		scope="prototype">
+		<property name="deviceInfoService" ref="deviceInfoService" />
+	</bean>
+	<!-- 设备配置用户数 -->
+	<bean id="deviceConfigDao" class="com.yzxt.yh.module.chk.dao.DeviceConfigDao"
+		parent="hibernateUtil" />
+	<bean id="deviceConfigService" class="com.yzxt.yh.module.chk.service.DeviceConfigService">
+		<property name="deviceConfigDao" ref="deviceConfigDao" />
+	</bean>
+	<bean id="deviceConfigAction" class="com.yzxt.yh.module.chk.action.DeviceConfigAction"
+		scope="prototype">
+		<property name="deviceConfigService" ref="deviceConfigService" />
+	</bean>
+	<!-- 体脂检测数据 -->
+	<bean id="bodyFatDao" class="com.yzxt.yh.module.chk.dao.BodyFatDao"
+		parent="hibernateUtil" />
+	<bean id="bodyFatService" class="com.yzxt.yh.module.chk.service.BodyFatService">
+		<property name="bodyFatDao" ref="bodyFatDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="checkWarnService" ref="checkWarnService" />
+		<property name="customerDao" ref="customerDao" />
+	</bean>
+</beans>

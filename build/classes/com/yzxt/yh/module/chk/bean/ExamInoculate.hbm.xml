@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.ExamInoculate" table="chk_exam_inoculate"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="examId" type="java.lang.String">
+			<column name="exam_id" length="18" not-null="true">
+			</column>
+		</property>
+		<property name="inoculateName" type="java.lang.String">
+			<column name="inoculate_name" length="20">
+			</column>
+		</property>
+		<property name="inoculateTime" type="java.sql.Timestamp">
+			<column name="inoculate_time" length="19">
+			</column>
+		</property>
+		<property name="inoculateDept" type="java.lang.String">
+			<column name="inoculate_dept" length="50">
+			</column>
+		</property>
+		<property name="seq" type="java.lang.Integer">
+			<column name="seq" not-null="true">
+				<comment>顺序号，从0开始</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

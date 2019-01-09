@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.Customer" table="sys_customer"
+		catalog="">
+		<id name="userId" type="java.lang.String">
+			<column name="user_id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="doctorId" type="java.lang.String">
+			<column name="doctorId" length="36">
+				<comment>医生id</comment>
+			</column>
+		</property>
+		<property name="doctorName" type="java.lang.String">
+			<column name="doctorName" length="36">
+				<comment>医生姓名</comment>
+			</column>
+		</property>
+		<property name="memberId" type="java.lang.String">
+			<column name="member_id" length="36">
+				<comment>正生效的会员ID</comment>
+			</column>
+		</property>
+		<property name="sex" type="java.lang.Integer">
+			<column name="sex">
+				<comment>性别</comment>
+			</column>
+		</property>
+		<property name="birthday" type="java.util.Date">
+			<column name="birthday" length="10" />
+		</property>
+		<property name="national" type="java.lang.String">
+			<column name="national" length="5">
+				<comment>民族</comment>
+			</column>
+		</property>
+		<property name="contactPhone" type="java.lang.String">
+			<column name="contact_phone" length="20">
+				<comment>联系人电话</comment>
+			</column>
+		</property>
+		<property name="degree" type="java.lang.Integer">
+			<column name="degree">
+				<comment>文化程度</comment>
+			</column>
+		</property>
+		<property name="profession" type="java.lang.String">
+			<column name="profession" length="20">
+				<comment>职业</comment>
+			</column>
+		</property>
+		<property name="maritalStatus" type="java.lang.Integer">
+			<column name="marital_status">
+				<comment>婚姻状况，1：未婚，2：已婚</comment>
+			</column>
+		</property>
+		<property name="liveAlone" type="java.lang.Integer">
+			<column name="live_alone">
+				<comment>是否独居，1：独居，2：非独居</comment>
+			</column>
+		</property>
+		<property name="healthyStatus" type="java.lang.Integer">
+			<column name="healthy_status">
+				<comment>健康状况，1：健康，2：亚健康，3：高危</comment>
+			</column>
+		</property>
+		<property name="qqNumber" type="java.lang.String">
+			<column name="qq_number" length="15">
+				<comment>QQ号</comment>
+			</column>
+		</property>
+		<property name="wechatNumber" type="java.lang.String">
+			<column name="wechat_number" length="30">
+				<comment>微信号</comment>
+			</column>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="100">
+				<comment>地址</comment>
+			</column>
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="200">
+				<comment>备注</comment>
+			</column>
+		</property>
+		<property name="createBy" type="java.lang.String">
+			<column name="create_by" length="36">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="updateBy" type="java.lang.String">
+			<column name="update_by" length="36">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="19" not-null="true">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

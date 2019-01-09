@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.ach.bean.LifeEnv" table="ach_life_env"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>外键ID 个人基本信息表ID</comment>
+			</column>
+		</property>
+		<property name="envType" type="java.lang.Integer">
+			<column name="env_type">
+				<comment>环境问题</comment>
+			</column>
+		</property>
+		<property name="detail" type="java.lang.String">
+			<column name="detail" length="50">
+				<comment>详细信息</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

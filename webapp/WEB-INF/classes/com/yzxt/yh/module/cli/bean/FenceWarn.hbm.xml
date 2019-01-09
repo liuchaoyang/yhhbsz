@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.cli.bean.FenceWarn" table="cli_fence_warn"
+		catalog="">
+		<id name="id" type="string">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="string">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="deviceNo" type="string">
+			<column name="device_no" length="36">
+				<comment>设备编号</comment>
+			</column>
+		</property>
+		<property name="longitude" type="java.lang.Double">
+			<column name="longitude" precision="9" scale="6">
+				<comment>检测地址经度</comment>
+			</column>
+		</property>
+		<property name="latitude" type="java.lang.Double">
+			<column name="latitude" precision="9" scale="6">
+				<comment>检测地址纬度</comment>
+			</column>
+		</property>
+		<property name="warnTime" type="java.sql.Timestamp">
+			<column name="warn_time" length="19" not-null="true">
+				<comment>告警时间</comment>
+			</column>
+		</property>
+		<property name="descript" type="java.lang.String">
+			<column name="descript">
+				<comment>预警描述</comment>
+			</column>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="100">
+				<comment>告警时的位置</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="chr_action" extends="struts-default" namespace="/chr">
+		<action name="chrManage_*" class="chrManageAction" method="{1}">
+			<!-- <result name="detail">/msg/consultView.jsp</result>
+			<result name="edit">/msg/consultAdd.jsp</result>
+			<result name="update">/msg/consultReply.jsp</result> -->
+		</action>
+		<action name="chrVisit_*" class="chrVisitAction" method="{1}">
+			<result name="xt">/chr/chr_glyinfo.jsp</result>
+			<result name="xy">/chr/chr_preinfo.jsp</result>
+			<result name="xnxg">/msg/consultReply.jsp</result>
+			<result name="myVisit">/chr/myVisitList.jsp</result>
+		</action>
+		<action name="glyInfo_*" class="chrGlyInfoAction" method="{1}">
+			<result name="view">/chr/glyinfoView.jsp</result>
+		</action>
+		<action name="preInfo_*" class="chrPreInfoAction" method="{1}">
+			<result name="view">/chr/preInfoView.jsp</result>
+		</action>
+	</package>
+</struts>

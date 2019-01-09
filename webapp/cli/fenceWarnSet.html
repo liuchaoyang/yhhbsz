@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>百度围栏设置</title>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.1&ak=o711qug9djNMF5cYYmpCOjbG&services=true"></script>
+<script type="text/javascript">
+	var bm;
+	var convertor;
+	var circle;
+	function init() {
+		// 百度地图API功能
+		// GPS坐标
+		var x = 113.9403;
+		var y = 22.5435;
+		var ggPoint = new BMap.Point(x, y);
+
+		//地图初始化
+		var bm = new BMap.Map("map");
+		bm.centerAndZoom(ggPoint, 15);
+		bm.addControl(new BMap.NavigationControl());
+
+		//坐标转换完之后的回调函数
+		translateCallback = function(data) {
+			var point = ggPoint;
+			if (data.status === 0) {
+				point = data.points[0];
+			}
+			bm.setCenter(data.points[0]);
+
+			// 默认围栏
+			var circleStyle = {
+				strokeColor : "#FF0000",
+				strokeWeight : 2,
+				strokeOpacity : 0.5,
+				strokeStyle : "dashed",
+				fillColor : "#00FF00",
+				fillOpacity : 0.08
+			};
+			circle = new BMap.Circle(point, 1500, circleStyle);
+			circle.enableEditing();
+			bm.addOverlay(circle);
+			circle.enableEditing();
+		}
+		convertor = new BMap.Convertor();
+		var pointArr = [];
+		pointArr.push(ggPoint);
+		convertor.translate(pointArr, 1, 5, translateCallback);
+	}
+	function save() {
+		alert("lng = " + bdPoint["lng"] + "\r\nlat = " + bdPoint["lat"]
+				+ "\r\nwa = " + circle["wa"]);
+	}
+</script>
+</head>
+<body onload="init();">
+	<div>
+		<div id="map"
+			style="width: 99.2%; height: 86%; float: left; display: block; position: absolute;"></div>
+	</div>
+	<div style="float: left; display: block; position: absolute;">
+		<button onclick="save();">保存</button>
+	</div>
+</body>
+</html>

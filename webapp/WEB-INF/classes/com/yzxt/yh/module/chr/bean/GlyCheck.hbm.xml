@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chr.bean.GlyCheck" table="chr_gly_check"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="bId" type="java.lang.String">
+			<column name="b_id" length="36">
+				<comment>外键（随访2型糖尿病记录表id）</comment>
+			</column>
+		</property>
+		<property name="hbpCheckName" type="java.lang.String">
+			<column name="hbp_check_name" length="100">
+				<comment>1其它时的名</comment>
+			</column>
+		</property>
+		<property name="hbpCheckType" type="java.lang.Integer">
+			<column name="hbp_check_type">
+				<comment>1其它2糖血红蛋白</comment>
+			</column>
+		</property>
+		<property name="hbpSugerBlood" type="java.lang.Double">
+			<column name="hbp_suger_blood" precision="4" scale="1">
+				<comment>糖化血红蛋白%</comment>
+			</column>
+		</property>
+		<property name="hbpCheckTime" type="java.sql.Timestamp">
+			<column name="hbp_check_time" length="19">
+				<comment>检查日期</comment>
+			</column>
+		</property>
+		<property name="hbpCheckRemark" type="java.lang.String">
+			<column name="hbp_check_remark" length="300">
+				<comment>检查备注</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

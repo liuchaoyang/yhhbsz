@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 序列类 -->
+	<bean id="seqDao" class="com.yzxt.yh.module.sys.dao.SeqDao"
+		parent="hibernateUtil" />
+	<bean id="seqService" class="com.yzxt.yh.module.sys.service.SeqService">
+		<property name="seqDao" ref="seqDao" />
+	</bean>
+	<!-- 文件信息 -->
+	<bean id="fileDescDao" class="com.yzxt.yh.module.sys.dao.FileDescDao"
+		parent="hibernateUtil" />
+	<bean id="fileDescService" class="com.yzxt.yh.module.sys.service.FileDescService">
+		<property name="fileDescDao" ref="fileDescDao" />
+	</bean>
+	<bean id="fileDescAction" class="com.yzxt.yh.module.sys.action.FileDescAction"
+		scope="prototype">
+	</bean>
+	<!-- 数据字典 -->
+	<bean id="dictDao" class="com.yzxt.yh.module.sys.dao.DictDao"
+		parent="hibernateUtil" />
+	<bean id="dictService" class="com.yzxt.yh.module.sys.service.DictService">
+		<property name="dictDao" ref="dictDao" />
+	</bean>
+	<bean id="commonFileAction" class="com.yzxt.yh.module.sys.action.CommonFileAction"
+		scope="prototype">
+	</bean>
+	<!-- 用户回话 -->
+	<bean id="userSessionDao" class="com.yzxt.yh.module.sys.dao.UserSessionDao"
+		parent="hibernateUtil" />
+	<!--组织 -->
+	<bean id="orgDao" class="com.yzxt.yh.module.sys.dao.OrgDao"
+		parent="hibernateUtil" />
+	<bean id="orgService" class="com.yzxt.yh.module.sys.service.OrgService">
+		<property name="orgDao" ref="orgDao" />
+		<property name="fileDescService" ref="fileDescService" />
+		<property name="seqService" ref="seqService" />
+	</bean>
+	<bean id="orgAction" class="com.yzxt.yh.module.sys.action.OrgAction"
+		scope="prototype">
+		<property name="orgService" ref="orgService" />
+	</bean>
+	<!-- 用户信息 -->
+	<bean id="userDao" class="com.yzxt.yh.module.sys.dao.UserDao"
+		parent="hibernateUtil" />
+	<bean id="userService" class="com.yzxt.yh.module.sys.service.UserService">
+		<property name="userDao" ref="userDao" />
+		<property name="userSessionDao" ref="userSessionDao" />
+	</bean>
+	<bean id="codeDao" class="com.yzxt.yh.module.sys.dao.CodeDao"
+		parent="hibernateUtil" />
+	<bean id="codeService" class="com.yzxt.yh.module.sys.service.CodeService">
+		<property name="codeDao" ref="codeDao" />
+	</bean>
+	<!-- 用户角色 -->
+	<bean id="userRoleDao" class="com.yzxt.yh.module.sys.dao.UserRoleDao"
+		parent="hibernateUtil" />
+	<bean id="userRoleService" class="com.yzxt.yh.module.sys.service.UserRoleService">
+		<property name="userRoleDao" ref="userRoleDao" />
+	</bean>
+	<bean id="userRoleAction" class="com.yzxt.yh.module.sys.action.UserRoleAction"
+		scope="prototype">
+		<property name="userRoleService" ref="userRoleService" />
+		<property name="roleService" ref="roleService" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<!-- 用户登录登出 -->
+	<bean id="welcomeAction" class="com.yzxt.yh.module.sys.action.WelcomeAction"
+		scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="userRoleService" ref="userRoleService" />
+		<property name="orgService" ref="orgService" />
+		<property name="loginRecordService" ref="loginRecordService" />
+	</bean>
+	<!-- 用户登录信息 -->
+	<bean id="loginRecordDao" class="com.yzxt.yh.module.sys.dao.LoginRecordDao"
+		parent="hibernateUtil" />
+	<bean id="loginRecordService" class="com.yzxt.yh.module.sys.service.LoginRecordService">
+		<property name="loginRecordDao" ref="loginRecordDao" />
+	</bean>
+	<bean id="loginRecordAction" class="com.yzxt.yh.module.sys.action.LoginRecordAction"
+		scope="prototype">
+		<property name="loginRecordService" ref="loginRecordService" />
+	</bean>
+	<!-- 推送用户映射信息 -->
+	<bean id="pushUserDao" class="com.yzxt.yh.module.sys.dao.PushUserDao"
+		parent="hibernateUtil" />
+	<bean id="pushUserService" class="com.yzxt.yh.module.sys.service.PushUserService">
+		<property name="pushUserDao" ref="pushUserDao" />
+	</bean>
+	<!--医生 -->
+	<bean id="doctorDao" class="com.yzxt.yh.module.sys.dao.DoctorDao"
+		parent="hibernateUtil" />
+	<bean id="doctorService" class="com.yzxt.yh.module.sys.service.DoctorService">
+		<property name="doctorDao" ref="doctorDao" />
+		<property name="userDao" ref="userDao" />
+		<property name="userRoleService" ref="userRoleService" />
+	</bean>
+	<bean id="doctorAction" class="com.yzxt.yh.module.sys.action.DoctorAction"
+		scope="prototype">
+		<property name="doctorService" ref="doctorService" />
+	</bean>
+	<!-- 客户 -->
+	<bean id="customerDao" class="com.yzxt.yh.module.sys.dao.CustomerDao"
+		parent="hibernateUtil" />
+	<bean id="customerService" class="com.yzxt.yh.module.sys.service.CustomerService">
+		<property name="customerDao" ref="customerDao" />
+		<property name="userRoleService" ref="userRoleService" />
+		<property name="userDao" ref="userDao" />
+		<property name="physiologIndexDao" ref="physiologIndexDao" />
+		<property name="custFamilyAuditDao" ref="custFamilyAuditDao" />
+		<property name="custFamilyDao" ref="custFamilyDao" />
+		<property name="fileDescDao" ref="fileDescDao" />
+		<property name="memberInfoService" ref="memberInfoService" />
+	</bean>
+	<bean id="customerAction" class="com.yzxt.yh.module.sys.action.CustomerAction"
+		scope="prototype">
+		<property name="customerService" ref="customerService" />
+		<property name="orgService" ref="orgService" />
+		<property name="dictService" ref="dictService" />
+	</bean>
+	<!-- 管理员 -->
+	<bean id="adminDao" class="com.yzxt.yh.module.sys.dao.AdminDao"
+		parent="hibernateUtil">
+	</bean>
+	<bean id="adminService" class="com.yzxt.yh.module.sys.service.AdminService">
+		<property name="adminDao" ref="adminDao" />
+		<property name="userDao" ref="userDao" />
+		<property name="userRoleService" ref="userRoleService" />
+	</bean>
+	<bean id="adminAction" class="com.yzxt.yh.module.sys.action.AdminAction"
+		scope="prototype">
+		<property name="adminService" ref="adminService" />
+		<property name="userService" ref="userService" />
+		<property name="orgService" ref="orgService" />
+	</bean>
+	<!-- 角色 -->
+	<bean id="roleDao" class="com.yzxt.yh.module.sys.dao.RoleDao"
+		parent="hibernateUtil">
+		<property name="roleResourceDao" ref="roleResourceDao" />
+	</bean>
+	<bean id="roleService" class="com.yzxt.yh.module.sys.service.RoleService">
+		<property name="roleDao" ref="roleDao" />
+	</bean>
+	<bean id="roleAction" class="com.yzxt.yh.module.sys.action.RoleAction"
+		scope="prototype">
+		<property name="roleService" ref="roleService" />
+	</bean>
+	<!-- 角色菜单 -->
+	<bean id="roleResourceDao" class="com.yzxt.yh.module.sys.dao.RoleResourceDao"
+		parent="hibernateUtil" />
+	<!-- 申请添加 -->
+	<bean id="custFamilyAuditDao" class="com.yzxt.yh.module.sys.dao.CustFamilyAuditDao"
+		parent="hibernateUtil">
+	</bean>
+	<!-- 审核 -->
+	<bean id="custFamilyDao" class="com.yzxt.yh.module.sys.dao.CustFamilyDao"
+		parent="hibernateUtil">
+	</bean>
+	<!--客户端 -->
+	<bean id="clientVersionDao" class="com.yzxt.yh.module.sys.dao.ClientVersionDao"
+		parent="hibernateUtil" />
+	<bean id="clientVersionService" class="com.yzxt.yh.module.sys.service.ClientVersionService">
+		<property name="clientVersionDao" ref="clientVersionDao" />
+	</bean>
+	<bean id="clientVersionAction" class="com.yzxt.yh.module.sys.action.ClientVersionAction"
+		scope="prototype">
+		<property name="clientVersionService" ref="clientVersionService" />
+		<property name="orgService" ref="orgService" />
+	</bean>
+	<!-- 家庭圈 -->
+	<bean id="familyService" class="com.yzxt.yh.module.sys.service.FamilyService">
+		<property name="custFamilyAuditDao" ref="custFamilyAuditDao" />
+		<property name="custFamilyDao" ref="custFamilyDao" />
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="familyAction" class="com.yzxt.yh.module.sys.action.FamilyAction"
+		scope="prototype">
+		<property name="familyService" ref="familyService" />
+		<property name="customerService" ref="customerService" />
+		<property name="userService" ref="userService" />
+		<property name="physiologIndexService" ref="physiologIndexService" />
+	</bean>
+	<bean id="helpAction" class="com.yzxt.yh.module.sys.action.HelpAction"
+		scope="prototype">
+		<property name="orgService" ref="orgService" />
+	</bean>
+	<!-- 客户端订单 -->
+	<bean id="orderDao" class="com.yzxt.yh.module.sys.dao.OrderDao"
+		parent="hibernateUtil">
+	</bean>
+	<bean id="orderService" class="com.yzxt.yh.module.sys.service.OrderService">
+		<property name="orderDao" ref="orderDao" />
+	</bean>
+</beans>

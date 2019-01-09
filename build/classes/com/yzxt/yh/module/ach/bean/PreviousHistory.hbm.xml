@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.ach.bean.PreviousHistory" table="ach_previous_history"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>外键ID 对应个人基本信息表ID</comment>
+			</column>
+		</property>
+		<property name="type" type="java.lang.Integer">
+			<column name="type_">
+				<comment>既往史类型1:疾病2手术</comment>
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="50">
+				<comment>既往史名称</comment>
+			</column>
+		</property>
+		<property name="pastTime" type="java.util.Date">
+			<column name="past_time" length="10">
+				<comment>既往史时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

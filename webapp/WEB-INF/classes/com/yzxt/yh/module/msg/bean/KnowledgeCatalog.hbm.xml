@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.msg.bean.KnowledgeCatalog" table="msg_knowledge_catalog"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="java.lang.String">
+			<column name="parent_id" length="36">
+				<comment>父ID</comment>
+			</column>
+		</property>
+		<property name="fullId" type="java.lang.String">
+			<column name="full_id" length="200" not-null="true">
+				<comment>目录全ID，包含所有父ID及自身ID，用"/"分隔</comment>
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name_" length="50" not-null="true">
+				<comment>目录名称</comment>
+			</column>
+		</property>
+		<property name="detail" type="java.lang.String">
+			<column name="detail" length="100">
+				<comment>目录描述</comment>
+			</column>
+		</property>
+		<property name="level" type="java.lang.Integer">
+			<column name="level" not-null="true">
+				<comment>目录等级，从1开始</comment>
+			</column>
+		</property>
+		<property name="isLeaf" type="java.lang.Integer">
+			<column name="is_leaf" not-null="true">
+				<comment>是否是叶子节点,1是，0否</comment>
+			</column>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state" not-null="true" />
+		</property>
+		<property name="seq" type="java.lang.Integer">
+			<column name="seq" not-null="true">
+				<comment>同一父目录下子目录顺序号，从1开始，同一父目录下子目录顺序号不能重复</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

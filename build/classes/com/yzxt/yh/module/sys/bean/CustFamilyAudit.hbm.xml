@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.sys.bean.CustFamilyAudit" table="sys_cust_family_audit"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="java.lang.String">
+			<column name="apply_cust_id" length="36" not-null="true">
+				<comment>户主id做主键</comment>
+			</column>
+		</property>
+		<property name="memberId" type="java.lang.String">
+			<column name="member_id" length="36" not-null="true">
+				<comment>户主id做主键</comment>
+			</column>
+		</property>
+		<property name="memberPhone" type="java.lang.String">
+			<column name="member_phone" length="15" >
+				<comment>成员电话</comment>
+			</column>
+		</property>
+		<property name="applyContext" type="java.lang.String">
+			<column name="apply_context" length="100">
+				<comment>验证内容</comment>
+			</column>
+		</property>
+		<property name="state" type="java.lang.Integer">
+			<column name="state">
+				<comment>申请状态：1：申请中，2：申请成功，3：申请失败，</comment>
+			</column>
+		</property>
+		<property name="applyTime" type="java.sql.Timestamp">
+			<column name="apply_time" length="19" not-null="true" />
+		</property>
+		<property name="auditTime" type="java.sql.Timestamp">
+			<column name="audit_time" length="19" />
+		</property>
+		<property name="memo" type="java.lang.String">
+			<column name="memo" length="36" >
+				<comment>1：父亲，2：母亲，3：兄弟姐妹，4：子女，</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

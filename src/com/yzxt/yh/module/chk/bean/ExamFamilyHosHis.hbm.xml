@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chk.bean.ExamFamilyHosHis" table="chk_exam_family_hos_his"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="examId" type="java.lang.String">
+			<column name="exam_id" length="18" not-null="true">
+			</column>
+		</property>
+		<property name="userName" type="java.lang.String">
+			<column name="user_name" length="50">
+			</column>
+		</property>
+		<property name="recordNo" type="java.lang.String">
+			<column name="record_no" length="17">
+			</column>
+		</property>
+		<property name="createBedTime" type="java.sql.Timestamp">
+			<column name="create_bed_time" length="19">
+			</column>
+		</property>
+		<property name="putBedTime" type="java.sql.Timestamp">
+			<column name="put_bed_time" length="19">
+			</column>
+		</property>
+		<property name="reason" type="java.lang.String">
+			<column name="reason" length="100">
+			</column>
+		</property>
+		<property name="hosUnit" type="java.lang.String">
+			<column name="hos_unit" length="50">
+			</column>
+		</property>
+		<property name="medRecordNo" type="java.lang.String">
+			<column name="med_record_no" length="20">
+			</column>
+		</property>
+		<property name="seq" type="java.lang.Integer">
+			<column name="seq" not-null="true">
+				<comment>顺序号，从0开始</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

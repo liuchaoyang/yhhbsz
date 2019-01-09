@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.cli.bean.Remind" table="cli_remind"
+		catalog="">
+		<id name="id" type="string">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="custId" type="string">
+			<column name="cust_id" length="36" not-null="true">
+				<comment>客户ID</comment>
+			</column>
+		</property>
+		<property name="deviceName" type="string">
+			<column name="device_name" length="50">
+				<comment>检测设备名称</comment>
+			</column>
+		</property>
+		<property name="deviceMac" type="string">
+			<column name="device_mac" length="20">
+				<comment>检测设备蓝牙Mac地址</comment>
+			</column>
+		</property>
+		<property name="latitude" type="double">
+			<column name="latitude" precision="9" scale="6">
+				<comment>检测地址纬度</comment>
+			</column>
+		</property>
+		<property name="longitude" type="double">
+			<column name="longitude" precision="9" scale="6">
+				<comment>检测地址经度</comment>
+			</column>
+		</property>
+		<property name="remindContents" type="string">
+			<column name="remind_contents">
+				<comment>提醒内容</comment>
+			</column>
+		</property>
+		<property name="remindTime" type="timestamp">
+			<column name="remind_time" length="19" not-null="true">
+				<comment>提醒时间</comment>
+			</column>
+		</property>
+		<property name="checkTime" type="timestamp">
+			<column name="check_time" length="19" not-null="true">
+				<comment>检测时间</comment>
+			</column>
+		</property>
+		<property name="createTime" type="timestamp">
+			<column name="create_time" length="19" not-null="true">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="checkType" type="integer">
+			<column name="check_type">
+				<comment>检测数据方式,1:机器检测的数据,2:手动录入的数据,11:个人版本机器检测的数据,12:个人版本手动输入的数据,3:设备直接上传的服务器的数据</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

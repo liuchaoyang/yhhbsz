@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	 ajax({
+            type:"post",
+            url:"yhhbsz/mobile/phone_login.action",
+            dataType:"json",
+            data:{
+            	clientparams:{"phone":"13910759555","password":"surezen123"}
+            }
+            success:function(data){
+				console.log(data)
+            }
+        });
+	
+</body>
+</html>

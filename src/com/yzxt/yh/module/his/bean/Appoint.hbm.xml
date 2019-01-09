@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.yzxt.yh.module.his.bean.Appoint" table="his_appoint" catalog="">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="36" />
+            <generator class="uuid.hex"></generator>
+        </id>
+        <property name="custId" type="java.lang.String">
+            <column name="cust_id" length="36" >
+                <comment>用户id</comment>
+            </column>
+        </property>
+        <property name="areaId" type="java.lang.Integer">
+            <column name="area_id">
+                <comment>地区id</comment>
+            </column>
+        </property>
+        <property name="deptId" type="java.lang.String">
+            <column name="dept_id" length="36" not-null="true">
+                <comment>医院id</comment>
+            </column>
+        </property>
+        <property name="departId" type="java.lang.String">
+            <column name="depart_id" length="36" not-null="true" >
+                <comment>科室id</comment>
+            </column>
+        </property>
+         <property name="doctorId" type="java.lang.String">
+            <column name="doctor_id" length="36" not-null="true" >
+                <comment>医生id</comment>
+            </column>
+        </property>
+        <property name="selfSymptom" type="java.lang.String">
+            <column name="self_symptom" length="100">
+                <comment>自述症状</comment>
+            </column>
+        </property>
+        <property name="firstVisit" type="java.lang.String">
+            <column name="first_visit" length="100">
+                <comment>初诊结果</comment>
+            </column>
+        </property>
+        <property name="memo" type="java.lang.String">
+            <column name="memo" length="100">
+                <comment>备注</comment>
+            </column>
+        </property>
+         <property name="appointTime" type="java.util.Date">
+            <column name="appoint_time" length="10">
+                <comment>想预约时间</comment>
+            </column>
+        </property>
+        <property name="detailTime" type="java.lang.Integer">
+            <column name="detail_time" >
+                <comment>想预约详细时间：1：全天；2：上午；3：下午</comment>
+            </column>
+        </property>
+         <property name="status" type="java.lang.Integer">
+            <column name="status"  not-null="true">
+                <comment>预约状态：1：已预约；0：预约中；-1：预约失败</comment>
+            </column>
+        </property>
+        <property name="resultExplain" type="java.lang.String">
+            <column name="result_explain" length="100">
+                <comment>预约结果说明</comment>
+            </column>
+        </property>
+        <property name="createBy" type="java.lang.String">
+            <column name="create_by" length="36">
+                <comment>创建人</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.sql.Timestamp">
+            <column name="create_time" length="19" not-null="true">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="updateBy" type="java.lang.String">
+            <column name="update_by" length="36">
+                <comment>修改人</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="java.sql.Timestamp">
+            <column name="update_time" length="19" not-null="true">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

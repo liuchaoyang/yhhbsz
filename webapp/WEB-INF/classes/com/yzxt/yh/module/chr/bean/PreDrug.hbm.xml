@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yzxt.yh.module.chr.bean.PreDrug" table="chr_pre_drug"
+		catalog="">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="36" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="hbpDrugsName" type="java.lang.String">
+			<column name="hbp_drugs_name" length="50">
+				<comment>药品名称</comment>
+			</column>
+		</property>
+		<property name="hbpDrugsFy" type="java.lang.Integer">
+			<column name="hbp_drugs_fy">
+				<comment>频次(每日/次)</comment>
+			</column>
+		</property>
+		<property name="hbpDrugsCount" type="java.lang.Integer">
+			<column name="hbp_drugs_count">
+				<comment>用量(每次/mg)</comment>
+			</column>
+		</property>
+		<property name="HId" type="java.lang.String">
+			<column name="h_id" length="36">
+				<comment>血压表中记录唯一id</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>
