@@ -1,15 +1,5 @@
 package com.yzxt.tran;
 
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-
-import org.apache.log4j.Logger;
-import org.codehaus.jackson.map.ObjectMapper;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.yzxt.fw.common.Result;
@@ -18,17 +8,14 @@ import com.yzxt.fw.server.SessionListener;
 import com.yzxt.fw.util.GsonUtil;
 import com.yzxt.yh.constant.Constant;
 import com.yzxt.yh.module.svb.bean.MemberInfo;
-import com.yzxt.yh.module.sys.bean.Codes;
-import com.yzxt.yh.module.sys.bean.CustFamily;
-import com.yzxt.yh.module.sys.bean.CustFamilyAudit;
-import com.yzxt.yh.module.sys.bean.Customer;
-import com.yzxt.yh.module.sys.bean.User;
-import com.yzxt.yh.module.sys.bean.UserPassword;
-import com.yzxt.yh.module.sys.bean.UserSession;
+import com.yzxt.yh.module.sys.bean.*;
 import com.yzxt.yh.util.StringUtil;
+import org.apache.log4j.Logger;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginTranAction extends WelcomeBaseTranAction
 {
@@ -137,30 +124,30 @@ public class LoginTranAction extends WelcomeBaseTranAction
                     return ;
     			}
     			MemberInfo member = new MemberInfo();
-                User users = userService.getUserByAcount("doctor1");
-                //member.setDoctorName(user.getName());
-                MemberInfo mem = memberInfoService.getMember(user.getId(), users.getId());
-                if(mem==null){
-            	   member.setDoctorId(users.getId());
-                   member.setCustId(user.getId());
-                   //member.setState(Constant.CUSTOMER_MEMBER_STATUS_YES);
-                   memberInfoService.add(member);
-                }
+//                User users = userService.getUserByAcount("doctor1");
+//                //member.setDoctorName(user.getName());
+//                MemberInfo mem = memberInfoService.getMember(user.getId(), users.getId());
+//                if(mem==null){
+//            	   member.setDoctorId(users.getId());
+//                   member.setCustId(user.getId());
+//                   //member.setState(Constant.CUSTOMER_MEMBER_STATUS_YES);
+//                   memberInfoService.add(member);
+//                }
                 //完善申请表信息
-                CustFamilyAudit familyUser = familyService.getFamilyUser(user.getId());
-                if(familyUser==null){
-                	CustFamilyAudit custf = new CustFamilyAudit();
-                    custf.setCustId(user.getId());
-                    custf.setMemberId(user.getId());
-                    familyService.addApply(custf);
-                }
-                CustFamily familyUserId = familyService.getFamilyUserId(user.getId());
-                if(familyUserId==null){
-                	CustFamily custFamily = new CustFamily();
-                    custFamily.setCustId(user.getId());
-                    custFamily.setMemberId(user.getId());
-                    familyService.addFamily(custFamily);
-                }
+//                CustFamilyAudit familyUser = familyService.getFamilyUser(user.getId());
+//                if(familyUser==null){
+//                	CustFamilyAudit custf = new CustFamilyAudit();
+//                    custf.setCustId(user.getId());
+//                    custf.setMemberId(user.getId());
+//                    familyService.addApply(custf);
+//                }
+//                CustFamily familyUserId = familyService.getFamilyUserId(user.getId());
+//                if(familyUserId==null){
+//                	CustFamily custFamily = new CustFamily();
+//                    custFamily.setCustId(user.getId());
+//                    custFamily.setMemberId(user.getId());
+//                    familyService.addFamily(custFamily);
+//                }
             	Map<String, Object> data = super.handleLogin(user,obj);
                 super.write(ResultTran.STATE_OK, "登录成功。",data);
                 request.getSession().setAttribute("user", user);
